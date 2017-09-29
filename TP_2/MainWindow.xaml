@@ -9,5 +9,6 @@
     <Grid>
         <TextBlock>Riiiiiiiiii</TextBlock>
         <TextBlock>Test 1</TextBlock>
+        <TextBlock>Test 2</TextBlock>
     </Grid>
 </Window>
