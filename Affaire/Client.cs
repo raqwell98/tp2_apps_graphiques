@@ -15,6 +15,7 @@ namespace Affaire
         private string courriel;
         private string province;
 
+        public Client() { nom = ""; prenom = ""; id = ""; numTel = ""; courriel = ""; province = ""; }
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
         public string Id { get => id; set => id = value; }
