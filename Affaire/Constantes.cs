@@ -15,6 +15,7 @@ namespace Affaire
             public static string Modification = "mp2";
             public static string Super = "mp3";
 
+            public static bool estValide(string mp) => mp == Consultation || mp == Modification || mp == Super;
         }
         public static class Exposition
         {
