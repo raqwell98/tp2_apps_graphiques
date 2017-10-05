@@ -9,6 +9,13 @@ namespace Affaire
 {
     public static class Constantes
     {
+        public static class MotDePasse
+        {
+            public static string Consultation = "mp1";
+            public static string Modification = "mp2";
+            public static string Super = "mp3";
+
+        }
         public static class Exposition
         {
             public static readonly string[] Noms = { "Soleil", "Ombre", "Mi-Ombre" };

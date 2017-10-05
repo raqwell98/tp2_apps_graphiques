@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.cs" />
     <Compile Include="ConvertisseurExposition.cs" />
     <Compile Include="ConvertisseurTypeTaille.cs" />
     <Compile Include="ConvertisseurTypeTerre.cs" />

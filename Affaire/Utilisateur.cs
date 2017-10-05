@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Affaire
 {
-    class Utilisateur
+    public class Utilisateur
     {
         private string identifiant;
         private string motDePasse;
