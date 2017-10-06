@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Affaire;
 
 namespace TP_2
 {
@@ -20,13 +21,19 @@ namespace TP_2
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Affaire.Connexion con;
+        private Affaire.Connexion connexion;
+
+        public Affaire.Connexion Connexion { get => connexion; set => connexion = value; }
+
         public MainWindow()
         {
             InitializeComponent();
+            initialiserConnection();
+        }
+        private void initialiserConnection()
+        {
             new Connexion().ShowDialog();
         }
-
         private void annuelle_Click(object sender, RoutedEventArgs e)
         {
             AjoutAnnuelle ajout = new AjoutAnnuelle();
@@ -50,5 +57,7 @@ namespace TP_2
             AjoutArbreArbuste ajout = new AjoutArbreArbuste();
             ajout.ShowDialog();
         }
+
+        
     }
 }
