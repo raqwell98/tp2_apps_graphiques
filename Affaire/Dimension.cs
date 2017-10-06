@@ -14,9 +14,9 @@ namespace Affaire
         private float y;
 
         public Dimension() { z = 0; x = 0; y = 0; }
-        public float Z { get => z; set { OnPropertyChanged("Z"); z = value; } }
-        public float X { get => x; set { OnPropertyChanged("X"); x = value; } }
-        public float Y { get => y; set { OnPropertyChanged("Y"); y = value; } }
+        public float Z { get => z; set { z = value; OnPropertyChanged("Z"); } }
+        public float X { get => x; set {  x = value; OnPropertyChanged("X"); } }
+        public float Y { get => y; set {  y = value; OnPropertyChanged("Y"); } }
 
         public override string ToString()
         {

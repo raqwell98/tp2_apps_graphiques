@@ -13,8 +13,8 @@ namespace Affaire
         private int fin;
         public TempsFloraison() { debut = 0; fin = 0; }
 
-        public int Fin { get => fin; set { OnPropertyChanged("Fin"); fin = value; } }
-        public int Debut { get => debut; set { OnPropertyChanged("Debut"); debut = value; } }
+        public int Fin { get => fin; set {  fin = value; OnPropertyChanged("Fin"); } }
+        public int Debut { get => debut; set { debut = value; OnPropertyChanged("Debut"); } }
 
         public event PropertyChangedEventHandler PropertyChanged;
         

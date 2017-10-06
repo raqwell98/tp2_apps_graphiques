@@ -10,6 +10,6 @@ namespace Affaire
     {
         private int zone;
         public FleurVivace() : base(){ zone = 0;  }
-        public int Zone { get => zone; set { OnPropertyChanged("Zone"); zone = value; } }
+        public int Zone { get => zone; set {  zone = value; OnPropertyChanged("Zone"); } }
     }
 }

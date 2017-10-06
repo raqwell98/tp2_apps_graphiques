@@ -14,8 +14,8 @@ namespace Affaire
 
         public Prix() { PrixVente = 0; prixUnitaire = 0; }
 
-        public float PrixVente { get => prixVente; set { OnPropertyChanged("PrixVente"); prixVente = value; } }
-        public float PrixUnitaire { get => prixUnitaire; set { OnPropertyChanged("PrixUnitaire"); prixUnitaire = value; } }
+        public float PrixVente { get => prixVente; set {  prixVente = value; OnPropertyChanged("PrixVente"); } }
+        public float PrixUnitaire { get => prixUnitaire; set {  prixUnitaire = value; OnPropertyChanged("PrixUnitaire"); } }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

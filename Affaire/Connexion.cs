@@ -11,15 +11,19 @@ namespace Affaire
     {
         private string motDePasse;
         private Utilisateur utilisateur;
+        private bool connecte;
 
-        public Connexion() { utilisateur = new Utilisateur(); motDePasse = ""; }
+        public Connexion() { utilisateur = new Utilisateur(); motDePasse = ""; connecte = false; }
 
-        public bool peuxConsulter() => motDePasse == Constantes.MotDePasse.Modification || peuxModifier();
-        public bool peuxModifier() => motDePasse == Constantes.MotDePasse.Consultation || peuxTout();
-        public bool peuxTout() => motDePasse == Constantes.MotDePasse.Super;
+        public void Connecter() { Connecte = Constantes.Utilisateur.estValide(Utilisateur.Identifiant) && Constantes.MotDePasse.estValide(MotDePasse); }
+        public void Deconnecter() { Connecte = false; Utilisateur = new Utilisateur(); MotDePasse = ""; }
+        public bool peuxConsulter() => connecte && (motDePasse == Constantes.MotDePasse.Modification || peuxModifier());
+        public bool peuxModifier() => connecte && (motDePasse == Constantes.MotDePasse.Consultation || peuxTout());
+        public bool peuxTout() => connecte && (motDePasse == Constantes.MotDePasse.Super);
 
-        public string MotDePasse { get => motDePasse; set { OnPropertyChanged("Utilisateur"); motDePasse = value; } }
-        public Utilisateur Utilisateur { get => utilisateur; set { OnPropertyChanged("Utilisateur");  utilisateur = value; } }
+        public bool Connecte { get => connecte; set { connecte = value; OnPropertyChanged("Connecte"); } }
+        public string MotDePasse { get => motDePasse; set { motDePasse = value; OnPropertyChanged("MotDePasse"); } }
+        public Utilisateur Utilisateur { get => utilisateur; set { utilisateur = value; OnPropertyChanged("Utilisateur"); } }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

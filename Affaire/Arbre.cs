@@ -13,9 +13,9 @@ namespace Affaire
         private int zone;
 
         public Arbre() : base() { tempsTaille = 0; typeTaille = 0; zone = 0; }
-        public int TempsTaille { get => tempsTaille; set { OnPropertyChanged("TempsTaille"); tempsTaille = value; } }
-        public int TypeTaille { get => typeTaille; set { OnPropertyChanged("TypeTaille"); typeTaille = value; } }
-        public int Zone { get => zone; set { OnPropertyChanged("Zone"); zone = value; } }
+        public int TempsTaille { get => tempsTaille; set {  tempsTaille = value; OnPropertyChanged("TempsTaille"); } }
+        public int TypeTaille { get => typeTaille; set {  typeTaille = value; OnPropertyChanged("TypeTaille"); } }
+        public int Zone { get => zone; set {  zone = value; OnPropertyChanged("Zone"); } }
 
     }
 }

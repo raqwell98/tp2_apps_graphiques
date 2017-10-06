@@ -19,6 +19,7 @@ namespace TP_2
     /// </summary>
     public partial class Connexion : Window
     {
+        // public Affaire.Connexion connexion;
         public Connexion()
         {
             InitializeComponent();
@@ -26,8 +27,17 @@ namespace TP_2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.idGrid.BindingGroup.CommitEdit();
-            this.mpGrid.BindingGroup.CommitEdit();
+            Affaire.Connexion con = ((Affaire.Connexion)this.DataContext);
+            if (con.Connecte)
+                con.Deconnecter();
+            else
+            {
+                con.Connecter();
+                this.idGrid.BindingGroup.CommitEdit();
+                this.mpGrid.BindingGroup.CommitEdit();
+            }
+
+
         }
     }
 }

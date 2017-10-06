@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="Connexion.cs" />
+    <Compile Include="ConvertisseurConnexion.cs" />
+    <Compile Include="ConvertisseurDeBool.cs" />
     <Compile Include="ConvertisseurExposition.cs" />
     <Compile Include="ConvertisseurTypeTaille.cs" />
     <Compile Include="ConvertisseurTypeTerre.cs" />
