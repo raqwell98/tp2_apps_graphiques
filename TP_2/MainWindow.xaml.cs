@@ -20,10 +20,11 @@ namespace TP_2
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Affaire.Connexion con;
         public MainWindow()
         {
             InitializeComponent();
-            new Connexion().Show();
+            new Connexion().ShowDialog();
         }
 
         private void annuelle_Click(object sender, RoutedEventArgs e)

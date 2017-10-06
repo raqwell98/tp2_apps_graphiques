@@ -35,6 +35,8 @@ namespace TP_2
                 con.Connecter();
                 this.idGrid.BindingGroup.CommitEdit();
                 this.mpGrid.BindingGroup.CommitEdit();
+                if (con.Connecte)
+                    this.Close();
             }
 
 

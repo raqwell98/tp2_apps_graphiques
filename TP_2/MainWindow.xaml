@@ -8,7 +8,8 @@
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Fichier">
+            <MenuItem Header="_Utilisateurs">
+                <MenuItem Header="_Déconnexion"/>
             </MenuItem>
             <MenuItem Header="_Inventaire">
                 <MenuItem Header="_Nouveau">
