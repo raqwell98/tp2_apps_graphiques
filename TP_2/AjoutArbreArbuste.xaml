@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP_2"
+        xmlns:Services="clr-namespace:Services;assembly=Services"
         mc:Ignorable="d"
         Title="AjoutArbreArbuste" Height="400" Width="300">
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
@@ -52,8 +54,15 @@
         <TextBox Name="tbTypeTaille" Grid.Row="6" Grid.Column="1"/>
         <TextBox Name="tbPrixUnitaire" Grid.Row="7" Grid.Column="1"/>
         <TextBox Name="tbPrixVente" Grid.Row="8" Grid.Column="1"/>
-        <TextBox Name="tbQuantite" Grid.Row="9" Grid.Column="1"/>
-
+        <TextBox Grid.Row="9" Grid.Column="1" Name="tbQuantite" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
+            <TextBox.Text>
+                <Binding Path="Quantite" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <Services:ValidateurQuantite ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <DockPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" LastChildFill="False">
             <Button DockPanel.Dock="Bottom" Content="Ajouter"/>
         </DockPanel>

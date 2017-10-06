@@ -5,21 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using Affaire;
 
-namespace Affaire
+namespace Services
 {
-    public class ConvertisseurDeBool : IValueConverter
+    public class ConvertisseurSaison : IValueConverter
     {
         public object Convert(object value, Type targetType,
-            object parameter, CultureInfo culture)
+             object parameter, CultureInfo culture)
         {
-            return !(bool)value;
+            return Constantes.Saison.Noms[(int)value];
         }
 
         public object ConvertBack(object value, Type targetType,
             object parameter, CultureInfo culture)
         {
-            return !(bool)parameter;
+            return Array.FindIndex(Constantes.Saison.Noms, x => x.Contains((string)(value)));
         }
     }
 }

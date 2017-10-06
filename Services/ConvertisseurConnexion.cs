@@ -6,20 +6,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Affaire
+namespace Services
 {
-    public class ConvertisseurMois : IValueConverter
+    public class ConvertisseurConnexion : IValueConverter
     {
         public object Convert(object value, Type targetType,
-             object parameter, CultureInfo culture)
+            object parameter, CultureInfo culture)
         {
-            return Constantes.Mois.Noms[(int)value];
+            return (bool)value ? "Deconnexion" : "Connexion";
         }
 
         public object ConvertBack(object value, Type targetType,
             object parameter, CultureInfo culture)
         {
-            return Array.FindIndex(Constantes.Mois.Noms, x => x.Contains((string)(value)));
+            switch ((string)value)
+            {
+                case "Connexion":
+                    return true;
+                default:
+                    return false;
+            }
         }
     }
 }

@@ -54,14 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ValidationId.cs" />
-    <Compile Include="ValidationMp.cs" />
     <Page Include="Connexion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="Test.cs" />
-    <Compile Include="ValidateurQuantite.cs" />
     <Page Include="AjoutAnnuelle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +132,10 @@
     <ProjectReference Include="..\Affaire\Affaire.csproj">
       <Project>{c902ea42-293b-488a-901e-a241b232d7db}</Project>
       <Name>Affaire</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{ad5ae595-f3ad-4578-9a41-827355781a22}</Project>
+      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

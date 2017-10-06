@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows.Controls;
 
-namespace TP_2
+namespace Services
 {
     public class ValidateurQuantite : ValidationRule
     {

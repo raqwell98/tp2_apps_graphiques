@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP_2"
         xmlns:Affaire="clr-namespace:Affaire;assembly=Affaire"
+        xmlns:Services="clr-namespace:Services;assembly=Services"
         mc:Ignorable="d"
-        Title="AjoutAnnuelle" Height="450" Width="300">
+        Title="AjoutAnnuelle" Height="450" Width="300" ResizeMode="NoResize">
     <Window.Resources>
-        <local:Test  x:Key="fleurAnnuelle"/>
+        <Affaire:FleurAnnuelle  x:Key="fleurAnnuelle"/>
     </Window.Resources>
     <Window.DataContext>
         <Binding Source="{StaticResource fleurAnnuelle}"/>
@@ -40,7 +41,15 @@
         <TextBlock Text="Quantité (unités) :" Grid.Row="7" Grid.Column="0"/>
         <TextBlock Text="Format :" Grid.Row="8" Grid.Column="0"/>
 
-        <TextBox Name="tbNom" Grid.Row="0" Grid.Column="1"/>
+        <TextBox Grid.Column="1" Grid.Row="0" Name="tbNom" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
+            <TextBox.Text>
+                <Binding Path="Nom" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <Services:ValidateurNom ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <TextBox Name="tbExposition" Grid.Row="1" Grid.Column="1"/>
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
             <TextBox Name="tbDimensionsX" Width="50" Text="hauteur" TextAlignment="Center"/>
@@ -59,7 +68,7 @@
             <TextBox.Text>
                 <Binding Path="Quantite" Mode="TwoWay">
                     <Binding.ValidationRules>
-                        <local:ValidateurQuantite ValidationStep="RawProposedValue"/>
+                        <Services:ValidateurQuantite ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>

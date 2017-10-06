@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Affaire;
 using System.Windows.Controls;
-using System.Globalization;
+using Affaire;
 using System.Windows.Data;
 
-namespace TP_2
+namespace Services
 {
-    public class ValidationMp : ValidationRule
+    public class ValidationId : ValidationRule
     {
 
-        public ValidationMp()
+        public ValidationId()
         {
         }
 
@@ -21,13 +21,12 @@ namespace TP_2
         {
             BindingGroup bindingGroup = (BindingGroup)value;
             Affaire.Connexion con = (Affaire.Connexion)bindingGroup.Items[0];
-
-            if (Constantes.MotDePasse.estValide(con.MotDePasse))
+            if (Constantes.Utilisateur.estValide(con.Utilisateur.Identifiant))
             {
                 return new ValidationResult(true, null);
             }
             return new ValidationResult(false,
-                      "Mot de passe incorrecte.");
+                      "Cet identifiant n'existe pas.");
 
         }
     }

@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP_2"
         xmlns:Affaire="clr-namespace:Affaire;assembly=Affaire"
+        xmlns:Services="clr-namespace:Services;assembly=Services"
         mc:Ignorable="d"
         Title="Connexion" Height="300" Width="300" ResizeMode="NoResize">
     <Window.Resources>
         <Affaire:Connexion x:Key="connexion"/>
-        <Affaire:ConvertisseurConnexion x:Key="converter" />
-        <Affaire:ConvertisseurDeBool x:Key="inversseur" />
+        <Services:ConvertisseurConnexion x:Key="converter" />
+        <Services:ConvertisseurDeBool x:Key="inversseur" />
     </Window.Resources>
     <Window.DataContext>
         <Binding Source="{StaticResource connexion}"/>
@@ -21,7 +22,7 @@
             <Grid.BindingGroup>
                 <BindingGroup Name="idGroupe">
                     <BindingGroup.ValidationRules>
-                        <local:ValidationId/>
+                        <Services:ValidationId/>
                     </BindingGroup.ValidationRules>
                 </BindingGroup>
             </Grid.BindingGroup>
@@ -44,7 +45,7 @@
             <Grid.BindingGroup>
                 <BindingGroup Name="mpGroupe">
                     <BindingGroup.ValidationRules>
-                        <local:ValidationMp/>
+                        <Services:ValidationMp/>
                     </BindingGroup.ValidationRules>
                 </BindingGroup>
             </Grid.BindingGroup>

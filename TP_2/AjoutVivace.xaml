@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP_2"
+        xmlns:Services="clr-namespace:Services;assembly=Services"
         mc:Ignorable="d"
         Title="AjoutVivace" Height="450" Width="300">
     <Grid>
@@ -47,7 +48,15 @@
         </StackPanel>
         <TextBox Name="tbPrixUnitaire" Grid.Row="4" Grid.Column="1"/>
         <TextBox Name="tbPrixVente" Grid.Row="5" Grid.Column="1"/>
-        <TextBox Name="tbQuantite" Grid.Row="6" Grid.Column="1"/>
+        <TextBox  Grid.Row="6" Grid.Column="1" Name="tbQuantite" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
+            <TextBox.Text>
+                <Binding Path="Quantite" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <Services:ValidateurQuantite ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <TextBox Name="tbZone" Grid.Row="7" Grid.Column="1"/>
 
         <DockPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" LastChildFill="False">

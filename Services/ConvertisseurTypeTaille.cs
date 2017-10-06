@@ -5,21 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using Affaire;
 
-namespace Affaire
+namespace Services
 {
-    public class ConvertisseurTypeTerre : IValueConverter
+    public class ConvertisseurTypeTaille : IValueConverter
     {
         public object Convert(object value, Type targetType,
      object parameter, CultureInfo culture)
         {
-            return Constantes.TypeTerre.Noms[(int)value];
+            return Constantes.TypeTaille.Noms[(int)value];
         }
 
         public object ConvertBack(object value, Type targetType,
             object parameter, CultureInfo culture)
         {
-            return Array.FindIndex(Constantes.TypeTerre.Noms, x => x.Contains((string)(value)));
+            return Array.FindIndex(Constantes.TypeTaille.Noms, x => x.Contains((string)(value)));
         }
     }
 }

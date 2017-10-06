@@ -6,26 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Affaire
+namespace Services
 {
-    public class ConvertisseurConnexion : IValueConverter
+    public class ConvertisseurDeBool : IValueConverter
     {
         public object Convert(object value, Type targetType,
             object parameter, CultureInfo culture)
         {
-            return (bool)value ? "Deconnexion" : "Connexion";
+            return !(bool)value;
         }
 
         public object ConvertBack(object value, Type targetType,
             object parameter, CultureInfo culture)
         {
-            switch ((string)value)
-            {
-                case "Connexion":
-                    return true;
-                default:
-                    return false;
-            }
+            return !(bool)parameter;
         }
     }
 }
