@@ -1,0 +1,74 @@
+﻿<Window x:Class="TP_2.Connexion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TP_2"
+        xmlns:Affaire="clr-namespace:Affaire;assembly=Affaire"
+        mc:Ignorable="d"
+        Title="Connexion" Height="300" Width="300" ResizeMode="NoResize">
+    <Window.Resources>
+        <Affaire:Connexion x:Key="connexion"/>
+        <Affaire:ConvertisseurConnexion x:Key="converter" />
+        <Affaire:ConvertisseurDeBool x:Key="inversseur" />
+    </Window.Resources>
+    <Window.DataContext>
+        <Binding Source="{StaticResource connexion}"/>
+    </Window.DataContext>
+    <StackPanel>
+        <Image Source="Ressources\Logo-Couleur.jpg"/>
+        <Grid Margin="0,0,0,1" x:Name="idGrid">
+            <Grid.BindingGroup>
+                <BindingGroup Name="idGroupe">
+                    <BindingGroup.ValidationRules>
+                        <local:ValidationId/>
+                    </BindingGroup.ValidationRules>
+                </BindingGroup>
+            </Grid.BindingGroup>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" TextAlignment="Center" FontFamily="Comic Sans MS">Identifiant</TextBlock>
+            <TextBox IsEnabled="{Binding Path=Connecte, Converter={StaticResource inversseur}}" Name="tbId" TextAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" Width="150">
+                <TextBox.Text>
+                    <Binding Path="Utilisateur.Identifiant" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBlock Name="tbErreurId" TextAlignment="Center" Grid.Row="2" Text="{Binding ElementName=idGrid, Path=(Validation.Errors)[0].ErrorContent}">
+            </TextBlock>
+        </Grid>
+        <Grid Margin="0,0,0,10" x:Name="mpGrid">
+            <Grid.BindingGroup>
+                <BindingGroup Name="mpGroupe">
+                    <BindingGroup.ValidationRules>
+                        <local:ValidationMp/>
+                    </BindingGroup.ValidationRules>
+                </BindingGroup>
+            </Grid.BindingGroup>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"  TextAlignment="Center" FontFamily="Comic Sans MS">Mot de passe</TextBlock>
+            <!-- Version fonctionnel sans passwordbox
+            <TextBox TextAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" Width="150" >
+                <TextBox.Text>
+                    <Binding Path="MotDePasse" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                    </Binding>
+                </TextBox.Text>
+            </TextBox> 
+            
+             Version du passwordbox trouver sur internet       -->
+            <PasswordBox IsEnabled="{Binding Path=Connecte, Converter={StaticResource inversseur}}" Name="pbMp" Grid.Row="1" HorizontalContentAlignment="Center"  Width="150"
+      Affaire:PasswordBoxAssistant.BindPassword="true"  Affaire:PasswordBoxAssistant.BoundPassword="{Binding Path=MotDePasse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Name="tbErreurMp" TextAlignment="Center" Grid.Row="2" Text="{Binding ElementName=mpGrid, Path=(Validation.Errors)[0].ErrorContent}">
+            </TextBlock>
+        </Grid>
+        <Button Content="{Binding Path=Connecte, Converter={StaticResource converter}}" Name="btnConnexion" HorizontalAlignment="Center" Width="100" FontFamily="Comic Sans MS" Click="Button_Click"/>
+    </StackPanel>
+</Window>

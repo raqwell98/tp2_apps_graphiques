@@ -10,13 +10,15 @@ namespace Affaire
     {
 
         private TempsFloraison tfloraison;
+        private Dimension dimension;
         private int exposition;
         private int typeTerre;
 
-        public Plante() : base() { tfloraison = new TempsFloraison(); exposition = 0; typeTerre = 0; }
+        public Plante() : base() { tfloraison = new TempsFloraison(); dimension = new Dimension(); exposition = 0; typeTerre = 0; }
 
-        public TempsFloraison Tfloraison { get => tfloraison; set { OnPropertyChanged("TFloraison"); tfloraison = value; } }
-        public int Exposition { get => exposition; set { OnPropertyChanged("Exposition"); exposition = value; } }
-        public int TypeTerre { get => typeTerre; set { OnPropertyChanged("TypeTerre"); typeTerre = value; } }
+        public TempsFloraison Tfloraison { get => tfloraison; set {  tfloraison = value; OnPropertyChanged("TFloraison"); } }
+        public Dimension Dimension { get => dimension; set {  dimension = value; OnPropertyChanged("Dimension"); } }
+        public int Exposition { get => exposition; set {  exposition = value; OnPropertyChanged("Exposition"); } }
+        public int TypeTerre { get => typeTerre; set {  typeTerre = value; OnPropertyChanged("TypeTerre"); } }
     }
 }

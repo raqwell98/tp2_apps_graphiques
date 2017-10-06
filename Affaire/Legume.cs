@@ -13,7 +13,7 @@ namespace Affaire
 
         public Legume() : base() { tempsRecolte = 0; type = 0; }
 
-        public int TempsRecolte { get => tempsRecolte; set { OnPropertyChanged("TempsRecolte"); tempsRecolte = value; } }
-        public int Type { get => type; set { OnPropertyChanged("Type"); type = value; } }
+        public int TempsRecolte { get => tempsRecolte; set {  tempsRecolte = value; OnPropertyChanged("TempsRecolte"); } }
+        public int Type { get => type; set {  type = value; OnPropertyChanged("Type"); } }
     }
 }

@@ -9,7 +9,7 @@ namespace Affaire
     public class FleurAnnuelle : Plante
     {
         private string format;
-        public FleurAnnuelle() { format = null; }
-        public string Format { get => format; set { OnPropertyChanged("Format"); format = value; } }
+        public FleurAnnuelle() { format = ""; }
+        public string Format { get => format; set {  format = value; OnPropertyChanged("Format"); } }
     }
 }

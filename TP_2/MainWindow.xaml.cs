@@ -23,6 +23,7 @@ namespace TP_2
         public MainWindow()
         {
             InitializeComponent();
+            new Connexion().Show();
         }
 
         private void annuelle_Click(object sender, RoutedEventArgs e)

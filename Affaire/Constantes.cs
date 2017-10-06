@@ -9,6 +9,23 @@ namespace Affaire
 {
     public static class Constantes
     {
+        public static class MotDePasse
+        {
+            public static string Consultation = "mp1";
+            public static string Modification = "mp2";
+            public static string Super = "mp3";
+
+            public static bool estValide(string mp) => mp == Consultation || mp == Modification || mp == Super;
+        }
+
+        public static class Utilisateur
+        {
+            public static string Consultation = "utilisateur1";
+            public static string Modification = "utilisateur2";
+            public static string Super = "utilisateur3";
+
+            public static bool estValide(string n) => n == Consultation || n == Modification || n == Super;
+        }
         public static class Exposition
         {
             public static readonly string[] Noms = { "Soleil", "Ombre", "Mi-Ombre" };

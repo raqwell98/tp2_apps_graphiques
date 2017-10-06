@@ -10,17 +10,19 @@ namespace Affaire
     public abstract class Produit : INotifyPropertyChanged
     {
         private string nom;
-        private Dimension dimensions;
+        private string description;
+        private string sku;
         private Prix prix;
         private int quantite;
         
 
-        public Produit() { nom = ""; dimensions = new Dimension(); prix = new Prix(); quantite = 0; }
+        public Produit() { nom = ""; prix = new Prix(); quantite = 0; description = ""; sku = ""; }
 
-        public string Nom { get => nom; set { OnPropertyChanged("Nom"); nom = value; } }
-        public Dimension Dimensions { get => dimensions; set { OnPropertyChanged("Dimension"); dimensions = value; } }
-        public Prix Prix { get => prix; set { OnPropertyChanged("Prix"); prix = value; } }
-        public int Quantite { get => quantite; set { OnPropertyChanged("Quantite"); quantite = value; } }
+        public string Nom { get => nom; set {  nom = value; OnPropertyChanged("Nom"); } }
+        public string Description { get => description; set { description = value; OnPropertyChanged("Description"); } }
+        public string SKU { get => sku; set {  sku = value; OnPropertyChanged("SKU"); } }
+        public Prix Prix { get => prix; set {  prix = value; OnPropertyChanged("Prix"); } }
+        public int Quantite { get => quantite; set { quantite = value; OnPropertyChanged("Quantite"); } }
         
 
         public event PropertyChangedEventHandler PropertyChanged;
