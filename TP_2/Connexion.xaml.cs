@@ -36,7 +36,10 @@ namespace TP_2
                 this.idGrid.BindingGroup.CommitEdit();
                 this.mpGrid.BindingGroup.CommitEdit();
                 if (con.Connecte)
+                {
+                    ((MainWindow)System.Windows.Application.Current.MainWindow).Connexion = con;
                     this.Close();
+                }
             }
 
 
