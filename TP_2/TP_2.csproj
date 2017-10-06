@@ -54,10 +54,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Test.cs" />
+    <Compile Include="ValidateurQuantite.cs" />
+    <Page Include="AjoutAnnuelle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AjoutArbreArbuste.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AjoutLegume.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AjoutVivace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AjoutAnnuelle.xaml.cs">
+      <DependentUpon>AjoutAnnuelle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutArbreArbuste.xaml.cs">
+      <DependentUpon>AjoutArbreArbuste.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutLegume.xaml.cs">
+      <DependentUpon>AjoutLegume.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutVivace.xaml.cs">
+      <DependentUpon>AjoutVivace.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -92,6 +122,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Affaire\Affaire.csproj">
+      <Project>{c902ea42-293b-488a-901e-a241b232d7db}</Project>
+      <Name>Affaire</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

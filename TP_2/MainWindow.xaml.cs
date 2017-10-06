@@ -24,5 +24,29 @@ namespace TP_2
         {
             InitializeComponent();
         }
+
+        private void annuelle_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutAnnuelle ajout = new AjoutAnnuelle();
+            ajout.ShowDialog();
+        }
+
+        private void vivace_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutVivace ajout = new AjoutVivace();
+            ajout.ShowDialog();
+        }
+
+        private void legume_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutLegume ajout = new AjoutLegume();
+            ajout.ShowDialog();
+        }
+
+        private void arbre_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutArbreArbuste ajout = new AjoutArbreArbuste();
+            ajout.ShowDialog();
+        }
     }
 }

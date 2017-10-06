@@ -6,9 +6,21 @@
         xmlns:local="clr-namespace:TP_2"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <TextBlock>Riiiiiiiiii</TextBlock>
-        <TextBlock>Test 1</TextBlock>
-        <TextBlock>Test 2</TextBlock>
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Fichier">
+            </MenuItem>
+            <MenuItem Header="_Inventaire">
+                <MenuItem Header="_Nouveau">
+                    <MenuItem Name="annuelle" Header="Annuelle" Click="annuelle_Click"/>
+                    <MenuItem Name="vivace"  Header="Vivace" Click="vivace_Click"/>
+                    <MenuItem Name="legume" Header="Légume" Click="legume_Click"/>
+                    <MenuItem Name="arbre" Header="Arbre ou arbuste" Click="arbre_Click"/>
+                </MenuItem>
+                <MenuItem Header="_Consulter"/>
+                <Separator />
+            </MenuItem>
+        </Menu>
+        <TextBox AcceptsReturn="True" />
+    </DockPanel>
 </Window>
