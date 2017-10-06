@@ -10,20 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TP_2
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour Connexion.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Connexion : Window
     {
-        public MainWindow()
+        public Connexion()
         {
             InitializeComponent();
-            new Connexion().Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.idGrid.BindingGroup.CommitEdit();
+            this.mpGrid.BindingGroup.CommitEdit();
         }
     }
 }

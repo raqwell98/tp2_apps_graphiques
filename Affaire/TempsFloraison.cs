@@ -17,7 +17,7 @@ namespace Affaire
         public int Debut { get => debut; set { OnPropertyChanged("Debut"); debut = value; } }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void OnPropertyChanged(string nomPropriete)
 
         {
