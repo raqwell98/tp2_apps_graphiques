@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="AjoutAnnuelle" Height="450" Width="300" ResizeMode="NoResize">
     <Window.Resources>
-        <Affaire:FleurAnnuelle  x:Key="fleurAnnuelle"/>
+        <Affaire:Plante  x:Key="fleurAnnuelle"/>
     </Window.Resources>
     <Window.DataContext>
         <Binding Source="{StaticResource fleurAnnuelle}"/>

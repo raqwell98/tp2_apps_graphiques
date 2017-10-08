@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Affaire;
+using System.Data;
+using Services;
+using System.Collections.ObjectModel;
 
 namespace TP_2
 {
@@ -22,14 +25,20 @@ namespace TP_2
     public partial class MainWindow : Window
     {
         private Affaire.Connexion connexion;
+        private Persistance persistance;
+
 
         public Affaire.Connexion Connexion { get => connexion; set => connexion = value; }
+        public Persistance Persistance { get => persistance; set => persistance = value; }
 
         public MainWindow()
         {
             InitializeComponent();
             initialiserConnection();
+            persistance = new Persistance();
+            lbPlantes.DataContext = persistance;
         }
+
         private void initialiserConnection()
         {
             new Connexion().ShowDialog();
@@ -58,6 +67,15 @@ namespace TP_2
             ajout.ShowDialog();
         }
 
-        
+        private void peupler_Click(object sender, RoutedEventArgs e)
+        {
+            persistance.initialiserDonnees();
+        }
+
+        private void sauvegarder_Click(object sender, RoutedEventArgs e)
+        {
+            persistance.Plantes.Add(new Plante());
+            persistance.sauvegarderDonnees();
+        }
     }
 }

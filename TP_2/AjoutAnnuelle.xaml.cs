@@ -20,12 +20,12 @@ namespace TP_2
     /// </summary>
     public partial class AjoutAnnuelle : Window
     {
-        private FleurAnnuelle fleurAnnuelle;
+        private Plante fleurAnnuelle;
         public AjoutAnnuelle()
         {
             InitializeComponent();
-            fleurAnnuelle = new FleurAnnuelle();
-            this.DataContext = fleurAnnuelle as FleurAnnuelle;
+            fleurAnnuelle = new Plante();
+            this.DataContext = fleurAnnuelle as Plante;
         }
     }
 }

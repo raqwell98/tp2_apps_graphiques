@@ -4,12 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP_2"
+        xmlns:Services="clr-namespace:Services;assembly=Services"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Utilisateurs">
-                <MenuItem Header="_Déconnexion"/>
+            <MenuItem Header="_Options">
+                <MenuItem Header="Déconnexion"/>
+                <MenuItem Header="Sauvegarder" Click="sauvegarder_Click"/>
+                <MenuItem Header="Peuplement initial" Click="peupler_Click"/>
             </MenuItem>
             <MenuItem Header="_Inventaire">
                 <MenuItem Header="_Nouveau">
@@ -22,6 +25,8 @@
                 <Separator />
             </MenuItem>
         </Menu>
-        <TextBox AcceptsReturn="True" />
+        <ListBox Name="lbPlantes" ItemsSource="{Binding Path=Plantes}">
+            
+        </ListBox>
     </DockPanel>
 </Window>

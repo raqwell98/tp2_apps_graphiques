@@ -47,8 +47,9 @@
     <Compile Include="ConvertisseurMois.cs" />
     <Compile Include="ConvertisseurSaison.cs" />
     <Compile Include="ConvertisseurTypeTaille.cs" />
-    <Compile Include="ConvertisseurTypeTerre.cs" />
     <Compile Include="ConvertisseurZone.cs" />
+    <Compile Include="Persistance.cs" />
+    <Compile Include="ScribeXML.cs" />
     <Compile Include="ValidateurNom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidateurQuantite.cs" />
