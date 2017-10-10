@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="CollectionPlantesObservable.cs" />
     <Compile Include="Connexion.cs" />
     <Compile Include="Constantes.cs" />
     <Compile Include="Dimension.cs" />

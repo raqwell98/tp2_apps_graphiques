@@ -16,22 +16,23 @@ namespace Services
 
         public ScribeXML() {}
 
-        public void inscriresPlantes(ObservableCollection<Plante> plantes)
+        public void inscriresPlantes(CollectionPlantesObservable plantes)
         {
-            XmlSerializer Serializer = new XmlSerializer(typeof(ObservableCollection<Plante>));
+            XmlSerializer Serializer = new XmlSerializer(typeof(CollectionPlantesObservable));
             TextWriter Writer = new StreamWriter(@"plantes.xml");
             Serializer.Serialize(Writer, plantes);
             Writer.Close();
         }
 
-        public ObservableCollection<Plante> recupererPlantes()
+
+        public CollectionPlantesObservable recupererPlantes()
         {
-            ObservableCollection<Plante> plantes = new ObservableCollection<Plante>();
+            CollectionPlantesObservable plantes = new CollectionPlantesObservable();
             try
             {
-                XmlSerializer Serializer = new XmlSerializer(typeof(ObservableCollection<Plante>));
+                XmlSerializer Serializer = new XmlSerializer(typeof(CollectionPlantesObservable));
                 TextReader Reader = new StreamReader(@"plantes.xml");
-                plantes = (ObservableCollection<Plante>)Serializer.Deserialize(Reader);
+                plantes = (CollectionPlantesObservable)Serializer.Deserialize(Reader);
                 Reader.Close();
 
             }

@@ -7,37 +7,41 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Affaire;
 
 namespace Services
 {
     public class Persistance : INotifyPropertyChanged
     {
-        private ObservableCollection<Plante> plantes;
+        //private ObservableCollection<Plante> plantes;
+        private CollectionPlantesObservable plantes;
         private ScribeXML scribe;
+
+        public CollectionPlantesObservable Plantes { get => plantes; set { plantes = value; sauvegarderDonnees(); OnPropertyChanged("Plantes"); } }
 
         public Persistance()
         {
             scribe = new ScribeXML();
             plantes = scribe.recupererPlantes();
-        }
 
+        }
         public void initialiserDonnees()
         {
             scribe.inscrirePlantesInitiales();
-            List<Plante> l = scribe.recupererPlantesInitiales();
-            l.AddRange(plantes.ToList<Plante>());
-            Plantes = new ObservableCollection<Plante>(l);
+            List<Plante> plantes = scribe.recupererPlantesInitiales();
+            plantes.AddRange(this.plantes.ToList());
+            Plantes = new CollectionPlantesObservable(plantes);
             File.Delete(@"annuelles.xml");
             File.Delete(@"legumes.xml");
         }
 
         public void sauvegarderDonnees()
         {
+            plantes.trierParNoms();
             scribe.inscriresPlantes(plantes);
+            plantes = scribe.recupererPlantes();
         }
-        public ObservableCollection<Plante> Plantes { get => plantes; set { plantes = value; OnPropertyChanged("Plantes"); } }
-
-        
+       
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string nomPropriete)

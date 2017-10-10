@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ConvertisseurConnexion.cs" />
     <Compile Include="ConvertisseurDeBool.cs" />
+    <Compile Include="ConvertisseurDeVisibilite.cs" />
     <Compile Include="ConvertisseurExposition.cs" />
     <Compile Include="ConvertisseurMois.cs" />
     <Compile Include="ConvertisseurSaison.cs" />

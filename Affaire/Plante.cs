@@ -16,11 +16,13 @@ namespace Affaire
         private Dimension dimension;
         private int exposition;
 
+
         public Plante() : base() { tfloraison = new TempsFloraison(); dimension = new Dimension(); exposition = 0; }
 
-        public override string ToString() { return Nom; }
+        public override string ToString() { return Nom + " (" + SKU + ")"; }
         public TempsFloraison Tfloraison { get => tfloraison; set {  tfloraison = value; OnPropertyChanged("TFloraison"); } }
         public Dimension Dimension { get => dimension; set {  dimension = value; OnPropertyChanged("Dimension"); } }
         public int Exposition { get => exposition; set {  exposition = value; OnPropertyChanged("Exposition"); } }
+
     }
 }

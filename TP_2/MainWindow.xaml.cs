@@ -34,48 +34,49 @@ namespace TP_2
         public MainWindow()
         {
             InitializeComponent();
+            connexion = new Affaire.Connexion();
             initialiserConnection();
             persistance = new Persistance();
+            this.DataContext = connexion;
             lbPlantes.DataContext = persistance;
+
         }
 
         private void initialiserConnection()
         {
-            new Connexion().ShowDialog();
+            Connexion con = new Connexion();
+            con.DataContext = connexion;
+            con.ShowDialog();
         }
-        private void annuelle_Click(object sender, RoutedEventArgs e)
+        private void ajout_Click(object sender, RoutedEventArgs e)
         {
-            AjoutAnnuelle ajout = new AjoutAnnuelle();
-            ajout.ShowDialog();
-        }
+            string nomAppelant = ((MenuItem)sender).Header.ToString();
+            Window fenetre = 
+                nomAppelant == "Annuelle" ? (Window)new AjoutAnnuelle() :
+                nomAppelant == "Legume" ? (Window)new AjoutLegume() :
+                nomAppelant == "Vivace" ? (Window)new AjoutVivace() : 
+                (Window)new AjoutArbreArbuste();
 
-        private void vivace_Click(object sender, RoutedEventArgs e)
-        {
-            AjoutVivace ajout = new AjoutVivace();
-            ajout.ShowDialog();
+            fenetre.Title = "Formulaire " + nomAppelant;
+            fenetre.Show();
         }
-
-        private void legume_Click(object sender, RoutedEventArgs e)
-        {
-            AjoutLegume ajout = new AjoutLegume();
-            ajout.ShowDialog();
-        }
-
-        private void arbre_Click(object sender, RoutedEventArgs e)
-        {
-            AjoutArbreArbuste ajout = new AjoutArbreArbuste();
-            ajout.ShowDialog();
-        }
-
         private void peupler_Click(object sender, RoutedEventArgs e)
         {
-            persistance.initialiserDonnees();
+                persistance.initialiserDonnees();
         }
 
-        private void sauvegarder_Click(object sender, RoutedEventArgs e)
+        private void trier_Click(object sender, RoutedEventArgs e)
         {
-            persistance.Plantes.Add(new Plante());
-            persistance.sauvegarderDonnees();
+            if (((MenuItem)sender).Header.ToString() == "SKUs")
+                persistance.Plantes.trierParSKU();
+            else
+                persistance.Plantes.trierParNoms();
+            // Cool code linq qui mérite d'être conservé List<string> nomsPlante = persistance.Plantes.Select(x => x.Nom).ToList();
+        }
+
+        private void deconnecter_Click(object sender, RoutedEventArgs e)
+        {
+            initialiserConnection();
         }
     }
 }

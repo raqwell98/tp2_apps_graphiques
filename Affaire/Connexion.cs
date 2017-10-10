@@ -15,11 +15,22 @@ namespace Affaire
 
         public Connexion() { utilisateur = new Utilisateur(); motDePasse = ""; connecte = false; }
 
-        public void Connecter() { Connecte = Constantes.Utilisateur.estValide(Utilisateur.Identifiant) && Constantes.MotDePasse.estValide(MotDePasse); }
-        public void Deconnecter() { Connecte = false; Utilisateur = new Utilisateur(); MotDePasse = ""; }
-        public bool peuxConsulter() => connecte && (motDePasse == Constantes.MotDePasse.Modification || peuxModifier());
-        public bool peuxModifier() => connecte && (motDePasse == Constantes.MotDePasse.Consultation || peuxTout());
-        public bool peuxTout() => connecte && (motDePasse == Constantes.MotDePasse.Super);
+        public void Connecter() { Connecte = Constantes.Utilisateur.estValide(Utilisateur.Identifiant) && Constantes.MotDePasse.estValide(MotDePasse); avertir(); }
+        public void Deconnecter() { Connecte = false; Utilisateur = new Utilisateur(); MotDePasse = ""; avertir(); }
+
+        public void avertir()
+        {
+            OnPropertyChanged("PeuxConsulter");
+            OnPropertyChanged("PeuxModifier");
+            OnPropertyChanged("PeuxTout");
+            OnPropertyChanged("Connecte");
+            OnPropertyChanged("MotDePasse");
+            OnPropertyChanged("Utilisateur");
+        }
+
+        public bool PeuxConsulter { get => connecte && (motDePasse == Constantes.MotDePasse.Consultation || PeuxModifier); }
+        public bool PeuxModifier { get => connecte && (motDePasse == Constantes.MotDePasse.Modification || PeuxTout);}
+        public bool PeuxTout { get => connecte && (motDePasse == Constantes.MotDePasse.Super); }
 
         public bool Connecte { get => connecte; set { connecte = value; OnPropertyChanged("Connecte"); } }
         public string MotDePasse { get => motDePasse; set { motDePasse = value; OnPropertyChanged("MotDePasse"); } }
