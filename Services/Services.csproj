@@ -47,7 +47,6 @@
     <Compile Include="ConvertisseurExposition.cs" />
     <Compile Include="ConvertisseurMois.cs" />
     <Compile Include="ConvertisseurSaison.cs" />
-    <Compile Include="ConvertisseurTypeTaille.cs" />
     <Compile Include="ConvertisseurZone.cs" />
     <Compile Include="Persistance.cs" />
     <Compile Include="ScribeXML.cs" />

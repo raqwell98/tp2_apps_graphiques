@@ -15,6 +15,11 @@ namespace Affaire
         public int Fin { get => fin; set {  fin = value; } }
         public int Debut { get => debut; set { debut = value; } }
 
-        
+        public override string ToString()
+        {
+            return Constantes.Mois[debut] + " à " + Constantes.Mois[fin];
+        }
+
+
     }
 }

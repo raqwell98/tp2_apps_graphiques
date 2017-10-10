@@ -16,6 +16,11 @@ namespace Affaire
         public int X { get => x; set {  x = value;  } }
         public int Y { get => y; set {  y = value;  } }
 
+        public override string ToString()
+        {
+            return x + " (cm) de long par "+ y + " (cm) de large";
+        }
+
 
     }
 }

@@ -17,5 +17,16 @@ namespace Affaire
         public int TempsRecolte { get => tempsRecolte; set {  tempsRecolte = value; OnPropertyChanged("TempsRecolte"); } }
         public int Type { get => type; set {  type = value; OnPropertyChanged("Type"); } }
         public bool EstVivace { get => estVivace; set { estVivace = value; OnPropertyChanged("EstVivace"); } }
+
+        public override string Description
+        {
+            get
+            {
+                return base.Description + "\nÀ récolter en " + Constantes.Mois[tempsRecolte] + ". \n" +
+                    "Plante d'" + Constantes.Saisons[type] + "." +
+                    (estVivace ? "\nEst une vivace." : "");
+            }
+            set => base.Description = value;
+        }
     }
 }

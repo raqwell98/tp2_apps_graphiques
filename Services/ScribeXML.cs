@@ -58,10 +58,10 @@ namespace Services
             dr["Nom"] = "Bernard";
             dr["Prenom"] = "Adam";
             dr["Id"] = "1000";
-            dr["NumTel"] = "";
-            dr["Courriel"] = "";
-            dr["CodePostal"] = "";
-            dr["Province"] = "";
+            dr["NumTel"] = "4182285034";
+            dr["Courriel"] = "adambernard@hotmail.com";
+            dr["CodePostal"] = "g0a 1a2";
+            dr["Province"] = "Québec";
             dt.Rows.Add(dr);
 
             dt.AcceptChanges();

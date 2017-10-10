@@ -27,5 +27,11 @@ namespace TP_2
             fleurAnnuelle = new Plante();
             this.DataContext = fleurAnnuelle as Plante;
         }
+
+        private void ajouter_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)System.Windows.Application.Current.MainWindow).Persistance.Plantes.Add((Plante)this.DataContext);
+            this.Close();
+        }
     }
 }

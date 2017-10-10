@@ -14,13 +14,13 @@ namespace Services
         public object Convert(object value, Type targetType,
              object parameter, CultureInfo culture)
         {
-            return Constantes.Saison.Noms[(int)value];
+            return Constantes.Saisons[(int)value];
         }
 
         public object ConvertBack(object value, Type targetType,
             object parameter, CultureInfo culture)
         {
-            return Array.FindIndex(Constantes.Saison.Noms, x => x.Contains((string)(value)));
+            return Array.FindIndex(Constantes.Saisons, x => x.Contains((string)(value)));
         }
     }
 }
