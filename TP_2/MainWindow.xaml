@@ -15,7 +15,7 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Options">
                 <MenuItem Header="{Binding Path=Connecte, Converter={StaticResource convertisseur2}}" Click="deconnecter_Click"/>
-                <MenuItem Visibility="{Binding Path=PeuxModifier, Converter={StaticResource convertisseur}}" Name="miPeupler" Header="Peuplement initial" Click="peupler_Click"/>
+                <MenuItem Visibility="{Binding Path=PeuxModifier, Converter={StaticResource convertisseur}}" Header="Peuplement initial" Click="peupler_Click"/>
             </MenuItem>
             <MenuItem  Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Inventaire">
                 <MenuItem Visibility="{Binding Path=PeuxModifier, Converter={StaticResource convertisseur}}" Name="miAjout" Header="_Nouveau">

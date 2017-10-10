@@ -30,7 +30,9 @@ namespace TP_2
 
         private void ajouter_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)System.Windows.Application.Current.MainWindow).Persistance.Plantes.Add((Plante)this.DataContext);
+            MainWindow main = ((MainWindow)System.Windows.Application.Current.MainWindow);
+            main.Persistance.Plantes.Add((Plante)this.DataContext);
+            main.Persistance.sauvegarderDonnees();
             this.Close();
         }
     }
