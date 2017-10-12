@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Affaire
 {
-    public class LegumeAnnuelle : Legume
+    public class LegumeAnnuel : Legume
     {
         private string format;
-        public LegumeAnnuelle() : base(){ format = ""; }
+        public LegumeAnnuel() : base(){ format = ""; }
         public string Format { get => format; set {  format = value; OnPropertyChanged("Format"); } }
     }
 }

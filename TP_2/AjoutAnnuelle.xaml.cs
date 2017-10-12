@@ -24,8 +24,8 @@ namespace TP_2
         public AjoutAnnuelle()
         {
             InitializeComponent();
-            fleurAnnuelle = new FleurAnnuelle();
-            this.DataContext = fleurAnnuelle as FleurAnnuelle;
+            //fleurAnnuelle = new FleurAnnuelle();
+            //this.DataContext = fleurAnnuelle as FleurAnnuelle;
         }
     }
 }

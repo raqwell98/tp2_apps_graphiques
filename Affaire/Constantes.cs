@@ -38,10 +38,6 @@ namespace Affaire
         {
             public static readonly string[] Noms = {"HR","Acide","Alcaline","Mousse de tourbe"};
         }
-        public static class TypeTaille
-        {
-            public static readonly string[] Noms = {"3/4 pousse de l'années", "1/2 pousse de l'années", "Au sol" };
-        }
         public static class Saison
         {
             public static readonly string[] Noms = { "Printemps", "Été", "Automne", "Hiver" };

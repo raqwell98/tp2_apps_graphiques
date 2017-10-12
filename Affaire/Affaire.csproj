@@ -50,7 +50,7 @@
     <Compile Include="Constantes.cs" />
     <Compile Include="Dimension.cs" />
     <Compile Include="FleurVivace.cs" />
-    <Compile Include="LegumeAnnuelle.cs" />
+    <Compile Include="LegumeAnnuel.cs" />
     <Compile Include="PasswordBoxAssistant.cs" />
     <Compile Include="TempsFloraison.cs" />
     <Compile Include="Legume.cs" />

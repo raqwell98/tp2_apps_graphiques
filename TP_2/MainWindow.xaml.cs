@@ -37,6 +37,7 @@ namespace TP_2
         private void annuelle_Click(object sender, RoutedEventArgs e)
         {
             AjoutAnnuelle ajout = new AjoutAnnuelle();
+            ajout.DataContext = new FleurAnnuelle();
             ajout.ShowDialog();
         }
 
