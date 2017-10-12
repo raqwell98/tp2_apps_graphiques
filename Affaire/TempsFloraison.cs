@@ -7,25 +7,19 @@ using System.Threading.Tasks;
 
 namespace Affaire
 {
-    public class TempsFloraison : INotifyPropertyChanged
+    public class TempsFloraison 
     {
         private int debut;
         private int fin;
         public TempsFloraison() { debut = 0; fin = 0; }
+        public int Fin { get => fin; set {  fin = value; } }
+        public int Debut { get => debut; set { debut = value; } }
 
-        public int Fin { get => fin; set {  fin = value; OnPropertyChanged("Fin"); } }
-        public int Debut { get => debut; set { debut = value; OnPropertyChanged("Debut"); } }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        
-        protected void OnPropertyChanged(string nomPropriete)
-
+        public override string ToString()
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(nomPropriete));
-            }
+            return Constantes.Mois[debut] + " à " + Constantes.Mois[fin];
         }
+
+
     }
 }

@@ -20,12 +20,20 @@ namespace TP_2
     /// </summary>
     public partial class AjoutAnnuelle : Window
     {
-        private FleurAnnuelle fleurAnnuelle;
+        private Plante fleurAnnuelle;
         public AjoutAnnuelle()
         {
             InitializeComponent();
-            //fleurAnnuelle = new FleurAnnuelle();
-            //this.DataContext = fleurAnnuelle as FleurAnnuelle;
+            fleurAnnuelle = new Plante();
+            this.DataContext = fleurAnnuelle as Plante;
+        }
+
+        private void ajouter_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = ((MainWindow)System.Windows.Application.Current.MainWindow);
+            main.Persistance.Plantes.Add((Plante)this.DataContext);
+            main.Persistance.sauvegarderDonnees();
+            this.Close();
         }
     }
 }

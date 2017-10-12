@@ -12,18 +12,19 @@ namespace Affaire
         private string nom;
         private string description;
         private string sku;
-        private Prix prix;
         private int quantite;
-        
+        private Prix prix;
+        private string format;
 
-        public Produit() { nom = ""; prix = new Prix(); quantite = 0; description = ""; sku = ""; }
 
+        public Produit() { nom = ""; prix = new Prix(); quantite = 0; description = ""; sku = ""; format = ""; }
         public string Nom { get => nom; set {  nom = value; OnPropertyChanged("Nom"); } }
-        public string Description { get => description; set { description = value; OnPropertyChanged("Description"); } }
+        public virtual string Description { get => description; set { description = value; OnPropertyChanged("Description"); } }
         public string SKU { get => sku; set {  sku = value; OnPropertyChanged("SKU"); } }
         public Prix Prix { get => prix; set {  prix = value; OnPropertyChanged("Prix"); } }
         public int Quantite { get => quantite; set { quantite = value; OnPropertyChanged("Quantite"); } }
-        
+        public string Format { get => format; set { format = value; OnPropertyChanged("Format"); } }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

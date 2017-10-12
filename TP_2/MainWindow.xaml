@@ -4,24 +4,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP_2"
+        xmlns:Services="clr-namespace:Services;assembly=Services"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Application" Height="350" Width="525">
+    <Window.Resources>
+        <Services:ConvertisseurDeVisibilite x:Key="convertisseur" />
+        <Services:ConvertisseurConnexion x:Key="convertisseur2" />
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Utilisateurs">
-                <MenuItem Header="_Déconnexion"/>
+            <MenuItem Header="_Options">
+                <MenuItem Header="{Binding Path=Connecte, Converter={StaticResource convertisseur2}}" Click="deconnecter_Click"/>
+                <MenuItem Visibility="{Binding Path=PeuxModifier, Converter={StaticResource convertisseur}}" Header="Peuplement initial" Click="peupler_Click"/>
             </MenuItem>
-            <MenuItem Header="_Inventaire">
-                <MenuItem Header="_Nouveau">
-                    <MenuItem Name="annuelle" Header="Annuelle" Click="annuelle_Click"/>
-                    <MenuItem Name="vivace"  Header="Vivace" Click="vivace_Click"/>
-                    <MenuItem Name="legume" Header="Légume" Click="legume_Click"/>
-                    <MenuItem Name="arbre" Header="Arbre ou arbuste" Click="arbre_Click"/>
+            <MenuItem  Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Inventaire">
+                <MenuItem Visibility="{Binding Path=PeuxModifier, Converter={StaticResource convertisseur}}" Name="miAjout" Header="_Nouveau">
+                    <MenuItem  Name="annuelle" Header="Annuelle" Click="ajout_Click"/>
+                    <MenuItem Name="vivace"  Header="Vivace" Click="ajout_Click"/>
+                    <MenuItem Name="legume" Header="Légume" Click="ajout_Click"/>
+                    <MenuItem Name="arbre" Header="Arbre ou arbuste" Click="ajout_Click"/>
                 </MenuItem>
                 <MenuItem Header="_Consulter"/>
                 <Separator />
             </MenuItem>
+            <MenuItem  Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Trier par">
+                <MenuItem Header="Noms" Click="trier_Click"/>
+                <MenuItem Header="SKUs"  Click="trier_Click"/>
+            </MenuItem>
         </Menu>
-        <TextBox AcceptsReturn="True" />
+        <DockPanel Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}">
+            <ListBox  Name="lbPlantes" ItemsSource="{Binding Path=Plantes}">
+            </ListBox>
+        </DockPanel>
     </DockPanel>
 </Window>

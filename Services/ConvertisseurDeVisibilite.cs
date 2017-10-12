@@ -5,22 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
-using Affaire;
 
 namespace Services
 {
-    public class ConvertisseurTypeTerre : IValueConverter
+    public class ConvertisseurDeVisibilite : IValueConverter
     {
         public object Convert(object value, Type targetType,
-     object parameter, CultureInfo culture)
+            object parameter, CultureInfo culture)
         {
-            return Constantes.TypeTerre.Noms[(int)value];
+            return (bool)value ?  "Visible" : "Collapsed";
         }
 
         public object ConvertBack(object value, Type targetType,
             object parameter, CultureInfo culture)
         {
-            return Array.FindIndex(Constantes.TypeTerre.Noms, x => x.Contains((string)(value)));
+            return false;
         }
     }
 }

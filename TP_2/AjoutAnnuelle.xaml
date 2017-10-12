@@ -8,6 +8,13 @@
         xmlns:Services="clr-namespace:Services;assembly=Services"
         mc:Ignorable="d"
         Title="AjoutAnnuelle" Height="450" Width="300" ResizeMode="NoResize">
+    <Window.Resources>
+        <Affaire:Plante  x:Key="fleurAnnuelle"/>
+        <Services:ConvertisseurMois x:Key="convertisseurMois" />
+    </Window.Resources>
+    <Window.DataContext>
+        <Binding Source="{StaticResource fleurAnnuelle}"/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
@@ -54,9 +61,9 @@
             <TextBox Name="tbDimensionsY" Text="{Binding Dimension.Y}" Width="50" TextAlignment="Center"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center">
-            <ComboBox Width="65" Name="tbFloraisonDebut"/>
+            <ComboBox SelectedItem="{Binding Path=Tfloraison.Debut,  Converter={StaticResource convertisseurMois}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Mois}}" Width="65" Name="tbFloraisonDebut"/>
             <TextBlock Text="à" Width="30" TextAlignment="Center"/>
-            <ComboBox Width="65" Name="tbFloraisonFin"/>
+            <ComboBox SelectedItem="{Binding Path=Tfloraison.Fin,  Converter={StaticResource convertisseurMois}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Mois}}" Width="65" Name="tbFloraisonFin"/>
         </StackPanel>
         <ComboBox Name="tbTypeTerre" Grid.Row="4" Grid.Column="1"/>
         <TextBox Name="tbPrixUnitaire" Text="{Binding Prix.PrixUnitaire}" Grid.Row="5" Grid.Column="1"/>
@@ -74,7 +81,7 @@
         <TextBox Name="tbDescription" Grid.Row="9" Grid.Column="1"/>
 
         <DockPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" LastChildFill="False">
-            <Button DockPanel.Dock="Bottom" Content="Ajouter"/>
+            <Button DockPanel.Dock="Bottom" Content="Ajouter" Click="ajouter_Click"/>
         </DockPanel>
     </Grid>
 </Window>
