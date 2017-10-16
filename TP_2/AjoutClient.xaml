@@ -56,14 +56,30 @@
             </TextBox.Text>
         </TextBox>
         <TextBox Name="tbID" Grid.Row="2" Grid.Column="1" Text="{Binding Id}"/>
-        <TextBox Name="tbNumTel" Grid.Row="3" Grid.Column="1" Text="{Binding NumTel}"/>
-        <TextBox Name="tbCourriel" Text="{Binding Courriel}" Grid.Row="4" Grid.Column="1"/>
+        <TextBox Name="tbNumTel" Grid.Row="3" Grid.Column="1" >
+            <TextBox.Text>
+                <Binding Path="NumTel" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <Services:ValidateurTelephone ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox Name="tbCourriel" Grid.Row="4" Grid.Column="1">
+            <TextBox.Text>
+                <Binding Path="Courriel" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <Services:ValidateurCourriel ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <ComboBox SelectedItem="{Binding Province}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Provinces}}" Name="cbProvinces" Grid.Row="5" Grid.Column="1"/>
         <TextBox Grid.Column="1" Grid.Row="6" Name="tbCodePostal" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="CodePostal" Mode="TwoWay">
                     <Binding.ValidationRules>
-
+                        <Services:ValidateurCodePostal ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>

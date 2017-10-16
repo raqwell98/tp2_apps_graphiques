@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
 
-namespace Utilisateurs
+namespace Services
 {
     public class ValidateurTelephone : ValidationRule
     {

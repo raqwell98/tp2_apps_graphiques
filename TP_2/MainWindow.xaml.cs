@@ -78,5 +78,10 @@ namespace TP_2
         {
             initialiserConnection();
         }
+
+        private void ajoutClient_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

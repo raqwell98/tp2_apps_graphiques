@@ -25,7 +25,10 @@
                     <MenuItem Name="arbre" Header="Arbre ou arbuste" Click="ajout_Click"/>
                 </MenuItem>
                 <MenuItem Header="_Consulter"/>
-                <Separator />
+            </MenuItem>
+            <MenuItem Header="_Clients">
+                <MenuItem Name="ajoutClient" Header="_Ajouter" Click="ajoutClient_Click"/>
+                <MenuItem Name="consultationClient" Header="_Consulter"/>
             </MenuItem>
             <MenuItem  Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Trier par">
                 <MenuItem Header="Noms" Click="trier_Click"/>
