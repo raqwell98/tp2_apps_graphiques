@@ -17,14 +17,14 @@ namespace Affaire
         public bool EstArbre { get => estArbre; set { estArbre = value; OnPropertyChanged("EstArbre"); } }
         public bool EstArbuste { get => estArbuste; set { estArbuste = value; OnPropertyChanged("EstArbuste"); } }
 
-        public override string Description
+        public override string Caracteristiques
         {
             get
             {
-                return base.Description + "\nPlante de " + Constantes.Zones[zone] + ". \n" +
+                return base.Caracteristiques + "\nPlante zonée " + Constantes.Zones[zone] + ". \n" +
                      "Est une vivace." + (estArbre ? "\nEst un arbre" : estArbuste? "\nEst un arbuste." : "");
             }
-            set => base.Description = value;
+            set => base.Caracteristiques = value;
         }
     }
 }
