@@ -24,6 +24,14 @@ namespace Services
             Writer.Close();
         }
 
+        public void inscriresClients(CollectionClientsObservable clients)
+        {
+            XmlSerializer Serializer = new XmlSerializer(typeof(CollectionClientsObservable));
+            TextWriter Writer = new StreamWriter(@"clients.xml");
+            Serializer.Serialize(Writer, clients);
+            Writer.Close();
+        }
+
 
         public CollectionPlantesObservable recupererPlantes()
         {
@@ -40,7 +48,22 @@ namespace Services
             return plantes;
         }
 
-        private void inscrireClientsInitiales()
+        public CollectionClientsObservable recupererClients()
+        {
+            CollectionClientsObservable clients = new CollectionClientsObservable();
+            try
+            {
+                XmlSerializer Serializer = new XmlSerializer(typeof(CollectionClientsObservable));
+                TextReader Reader = new StreamReader(@"clients.xml");
+                clients = (CollectionClientsObservable)Serializer.Deserialize(Reader);
+                Reader.Close();
+
+            }
+            catch (Exception e) { }
+            return clients;
+        }
+
+        public void inscrireClientsInitiales()
         {
             DataTable dt;
             dt = new DataTable();
@@ -64,9 +87,45 @@ namespace Services
             dr["Province"] = "Québec";
             dt.Rows.Add(dr);
 
+            dr = dt.NewRow();
+            dr["Nom"] = "Demers";
+            dr["Prenom"] = "Charle";
+            dr["Id"] = "100s";
+            dr["NumTel"] = "4183325089";
+            dr["Courriel"] = "demersCharle@hotmail.com";
+            dr["CodePostal"] = "g0b 2b3";
+            dr["Province"] = "Québec";
+            dt.Rows.Add(dr);
+
             dt.AcceptChanges();
 
             dt.WriteXml(@"clients.xml", XmlWriteMode.WriteSchema);
+        }
+        public List<Client> recupererClientsInitiales()
+        {
+            List<Client> clientsInitiales = new List<Client>();
+            DataTable dt = new DataTable();
+            try
+            {
+                dt.ReadXml(@"clients.xml");
+                foreach (DataRow row in dt.Rows)
+                {
+                    clientsInitiales.Add(new Client()
+                    {
+                        Nom = (string)row["Nom"],
+                        Prenom = (string)row["Prenom"],
+                        Id = (string)row["Id"],
+                        Courriel = (string)row["Courriel"],
+                        NumTel = (string)row["NumTel"],
+                        Province = (string)row["Province"],
+                        CodePostal = (string)row["CodePostal"]
+                        
+                    });
+                }
+            }
+            catch (Exception e1) { }
+
+            return clientsInitiales;
         }
         public void inscrirePlantesInitiales()
         {

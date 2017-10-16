@@ -38,7 +38,8 @@ namespace TP_2
             initialiserConnection();
             persistance = new Persistance();
             this.DataContext = connexion;
-            lbPlantes.DataContext = persistance;
+            lbConsultation.DataContext = persistance;
+           // lbConsultation.ItemsSource = persistance.Plantes;
 
         }
 

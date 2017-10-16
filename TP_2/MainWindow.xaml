@@ -33,7 +33,7 @@
             </MenuItem>
         </Menu>
         <DockPanel Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}">
-            <ListBox  Name="lbPlantes" ItemsSource="{Binding Path=Plantes}">
+            <ListBox   Name="lbConsultation" ItemsSource="{Binding Path=Plantes}">
             </ListBox>
         </DockPanel>
     </DockPanel>

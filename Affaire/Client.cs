@@ -15,15 +15,16 @@ namespace Affaire
         private string numTel;
         private string courriel;
         private string province;
+        private string codePostal;
 
-        public Client() { nom = ""; prenom = ""; id = ""; numTel = ""; courriel = ""; province = ""; }
+        public Client() { nom = ""; prenom = ""; id = ""; numTel = ""; courriel = ""; province = ""; codePostal = ""; }
         public string Nom { get => nom; set { nom = value; OnPropertyChanged("Nom"); } }
-        public string Prenom { get => prenom; set { prenom = value; OnPropertyChanged("Prenom"); }
-}
+        public string Prenom { get => prenom; set { prenom = value; OnPropertyChanged("Prenom"); } }
         public string Id { get => id; set { id = value; OnPropertyChanged("Id"); } }
         public string NumTel { get => numTel; set { numTel = value; OnPropertyChanged("NumTel"); } }
         public string Courriel { get => courriel; set { courriel = value; OnPropertyChanged("Courriel"); } }
         public string Province { get => province; set { province = value; OnPropertyChanged("Province"); } }
+        public string CodePostal { get => codePostal; set { codePostal = value; OnPropertyChanged("CodePostal"); } }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
