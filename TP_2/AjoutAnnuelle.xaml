@@ -7,13 +7,14 @@
         xmlns:Affaire="clr-namespace:Affaire;assembly=Affaire"
         xmlns:Services="clr-namespace:Services;assembly=Services"
         mc:Ignorable="d"
-        Title="AjoutAnnuelle" Height="450" Width="300" ResizeMode="NoResize">
+        Title="AjoutAnnuelle" Height="400" Width="300" ResizeMode="NoResize">
     <Window.Resources>
-        <Affaire:Plante  x:Key="fleurAnnuelle"/>
+        <Affaire:Plante  x:Key="annuelle"/>
         <Services:ConvertisseurMois x:Key="convertisseurMois" />
+        <Services:ConvertisseurExposition x:Key="convertisseurExposition" />
     </Window.Resources>
     <Window.DataContext>
-        <Binding Source="{StaticResource fleurAnnuelle}"/>
+        <Binding Source="{StaticResource annuelle}"/>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -36,11 +37,11 @@
         <TextBlock Text="Exposition :" Grid.Row="1" Grid.Column="0"/>
         <TextBlock Text="Dimensions (cm) :" Grid.Row="2" Grid.Column="0"/>
         <TextBlock Text="Floraison :" Grid.Row="3" Grid.Column="0"/>
-        <TextBlock Text="Type de terre :" Grid.Row="4" Grid.Column="0"/>
-        <TextBlock Text="Prix unitaire ($) :" Grid.Row="5" Grid.Column="0"/>
-        <TextBlock Text="Prix de vente ($) :" Grid.Row="6" Grid.Column="0"/>
-        <TextBlock Text="Quantité (unités) :" Grid.Row="7" Grid.Column="0"/>
-        <TextBlock Text="Format :" Grid.Row="8" Grid.Column="0"/>
+        <TextBlock Text="Prix unitaire ($) :" Grid.Row="4" Grid.Column="0"/>
+        <TextBlock Text="Prix de vente ($) :" Grid.Row="5" Grid.Column="0"/>
+        <TextBlock Text="Quantité (unités) :" Grid.Row="6" Grid.Column="0"/>
+        <TextBlock Text="Format :" Grid.Row="7" Grid.Column="0"/>
+        <TextBlock Text="Description :" Grid.Row="8" Grid.Column="0"/>
 
         <TextBox Grid.Column="1" Grid.Row="0" Name="tbNom" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
@@ -51,21 +52,20 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox Name="tbExposition" Grid.Row="1" Grid.Column="1"/>
+        <ComboBox SelectedItem="{Binding Exposition,  Converter={StaticResource convertisseurExposition}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Expositions}}" Name="cbExposition" Grid.Row="1" Grid.Column="1"/>
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
-            <TextBox Name="tbDimensionsX" Width="50" Text="hauteur" TextAlignment="Center"/>
+            <TextBox Name="tbDimensionsX" Text="{Binding Dimension.X}"  Width="50" TextAlignment="Center"/>
             <TextBlock Text="par" Width="30" TextAlignment="Center"/>
-            <TextBox Name="tbDimensionsY" Width="50" Text="largeur" TextAlignment="Center"/>
+            <TextBox Name="tbDimensionsY" Text="{Binding Dimension.Y}" Width="50" TextAlignment="Center"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center">
-            <ComboBox SelectedItem="{Binding Path=Tfloraison.Debut,  Converter={StaticResource convertisseurMois}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Mois}}" Width="65" Name="tbFloraisonDebut"/>
+            <ComboBox SelectedItem="{Binding Tfloraison.Debut,  Converter={StaticResource convertisseurMois}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Mois}}" Width="65" Name="cbFloraisonDebut"/>
             <TextBlock Text="à" Width="30" TextAlignment="Center"/>
-            <ComboBox SelectedItem="{Binding Path=Tfloraison.Fin,  Converter={StaticResource convertisseurMois}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Mois}}" Width="65" Name="tbFloraisonFin"/>
+            <ComboBox SelectedItem="{Binding Tfloraison.Fin,  Converter={StaticResource convertisseurMois}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Mois}}" Width="65" Name="cbFloraisonFin"/>
         </StackPanel>
-        <ListBox Name="tbTypeTerre" Grid.Row="4" Grid.Column="1"/>
-        <TextBox Name="tbPrixUnitaire" Grid.Row="5" Grid.Column="1"/>
-        <TextBox Name="tbPrixVente" Grid.Row="6" Grid.Column="1"/>
-        <TextBox  Grid.Row="7" Grid.Column="1" Name="tbQuantite" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
+        <TextBox Name="tbPrixUnitaire" Text="{Binding Prix.PrixUnitaire}" Grid.Row="4" Grid.Column="1"/>
+        <TextBox Name="tbPrixVente" Text="{Binding Prix.PrixVente}" Grid.Row="5" Grid.Column="1"/>
+        <TextBox  Grid.Row="6" Grid.Column="1" Name="tbQuantite" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="Quantite" Mode="TwoWay">
                     <Binding.ValidationRules>
@@ -74,7 +74,8 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox Name="tbFormat" Grid.Row="8" Grid.Column="1"/>
+        <TextBox Name="tbFormat" Text="{Binding Format}" Grid.Row="7" Grid.Column="1"/>
+        <TextBox Name="tbDescription" Text="{Binding Description}" Grid.Row="8" Grid.Column="1"/>
 
         <DockPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" LastChildFill="False">
             <Button DockPanel.Dock="Bottom" Content="Ajouter" Click="ajouter_Click"/>

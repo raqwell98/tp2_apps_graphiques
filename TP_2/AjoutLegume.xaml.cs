@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Affaire;
 
 namespace TP_2
 {
@@ -22,6 +23,14 @@ namespace TP_2
         public AjoutLegume()
         {
             InitializeComponent();
+        }
+
+        private void ajouter_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = ((MainWindow)System.Windows.Application.Current.MainWindow);
+            main.Persistance.Plantes.Add((Plante)this.DataContext);
+            main.Persistance.sauvegarderDonnees();
+            this.Close();
         }
     }
 }

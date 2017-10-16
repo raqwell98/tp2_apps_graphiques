@@ -4,9 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP_2"
+        xmlns:Affaire="clr-namespace:Affaire;assembly=Affaire"
         xmlns:Services="clr-namespace:Services;assembly=Services"
         mc:Ignorable="d"
         Title="AjoutVivace" Height="450" Width="300">
+    <Window.Resources>
+        <Affaire:Vivace  x:Key="vivace"/>
+        <Services:ConvertisseurMois x:Key="convertisseurMois"/>
+        <Services:ConvertisseurExposition x:Key="convertisseurExposition"/>
+        <Services:ConvertisseurZone x:Key="convertisseurZone" />
+    </Window.Resources>
+    <Window.DataContext>
+        <Binding Source="{StaticResource vivace}"/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
@@ -23,32 +33,49 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Nom :" Grid.Row="0" Grid.Column="0"/>
         <TextBlock Text="Exposition :" Grid.Row="1" Grid.Column="0"/>
         <TextBlock Text="Dimensions (cm) :" Grid.Row="2" Grid.Column="0"/>
-        <TextBlock Text="Floraison :" Grid.Row="3" Grid.Column="0"/>
-        <TextBlock Text="Prix unitaire ($) :" Grid.Row="4" Grid.Column="0"/>
-        <TextBlock Text="Prix de vente ($) :" Grid.Row="5" Grid.Column="0"/>
-        <TextBlock Text="Quantité (unités) :" Grid.Row="6" Grid.Column="0"/>
-        <TextBlock Text="Zone :" Grid.Row="7" Grid.Column="0"/>
-
-        <TextBox Name="tbNom" Grid.Row="0" Grid.Column="1"/>
-        <ListBox Name="tbExposition" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock Text="Type :" Grid.Row="3" Grid.Column="0"/>
+        <TextBlock Text="Floraison :" Grid.Row="4" Grid.Column="0"/>
+        <TextBlock Text="Prix unitaire ($) :" Grid.Row="5" Grid.Column="0"/>
+        <TextBlock Text="Prix de vente ($) :" Grid.Row="6" Grid.Column="0"/>
+        <TextBlock Text="Quantité (unités) :" Grid.Row="7" Grid.Column="0"/>
+        <TextBlock Text="Format :" Grid.Row="8" Grid.Column="0"/>
+        <TextBlock Text="Zone :" Grid.Row="9" Grid.Column="0"/>
+        <TextBlock Text="Description :" Grid.Row="10" Grid.Column="0"/>
+        
+        <TextBox Grid.Column="1" Grid.Row="0" Name="tbNom" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
+            <TextBox.Text>
+                <Binding Path="Nom" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <Services:ValidateurNom ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <ComboBox SelectedItem="{Binding Exposition,  Converter={StaticResource convertisseurExposition}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Expositions}}" Name="cbExposition" Grid.Row="1" Grid.Column="1"/>
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
-            <TextBox Name="tbDimensionsX" Width="50" Text="hauteur" TextAlignment="Center"/>
+            <TextBox Name="tbDimensionsX" Text="{Binding Dimension.X}"  Width="50" TextAlignment="Center"/>
             <TextBlock Text="par" Width="30" TextAlignment="Center"/>
-            <TextBox Name="tbDimensionsY" Width="50" Text="largeur" TextAlignment="Center"/>
+            <TextBox Name="tbDimensionsY" Text="{Binding Dimension.Y}" Width="50" TextAlignment="Center"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center">
-            <ListBox Width="65" Name="tbFloraisonDebut"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <RadioButton Name="rbArbre" Content="arbre " IsChecked="{Binding EstArbre}"/>
+            <RadioButton Name="rbArbuste" Content="arbuste " IsChecked="{Binding EstArbuste}"/>
+            <RadioButton Content="fleur"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
+            <ComboBox SelectedItem="{Binding Tfloraison.Debut,  Converter={StaticResource convertisseurMois}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Mois}}" Width="65" Name="cbFloraisonDebut"/>
             <TextBlock Text="à" Width="30" TextAlignment="Center"/>
-            <ListBox Width="65" Name="tbFloraisonFin"/>
+            <ComboBox SelectedItem="{Binding Tfloraison.Fin,  Converter={StaticResource convertisseurMois}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Mois}}" Width="65" Name="cbFloraisonFin"/>
         </StackPanel>
-        <TextBox Name="tbPrixUnitaire" Grid.Row="4" Grid.Column="1"/>
-        <TextBox Name="tbPrixVente" Grid.Row="5" Grid.Column="1"/>
-        <TextBox  Grid.Row="6" Grid.Column="1" Name="tbQuantite" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
+        <TextBox Name="tbPrixUnitaire" Text="{Binding Prix.PrixUnitaire}" Grid.Row="5" Grid.Column="1" Height="30" VerticalAlignment="Top"/>
+        <TextBox Name="tbPrixVente" Text="{Binding Prix.PrixVente}" Grid.Row="6" Grid.Column="1"/>
+        <TextBox  Grid.Row="7" Grid.Column="1" Name="tbQuantite" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="Quantite" Mode="TwoWay">
                     <Binding.ValidationRules>
@@ -57,10 +84,12 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox Name="tbZone" Grid.Row="7" Grid.Column="1"/>
-
-        <DockPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" LastChildFill="False">
-            <Button DockPanel.Dock="Bottom" Content="Ajouter"/>
+        <TextBox Name="tbFormat" Text="{Binding Format}" Grid.Row="8" Grid.Column="1"/>
+        <ComboBox Name="cbZone" SelectedItem="{Binding Zone,  Converter={StaticResource convertisseurZone}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Zones}}" Grid.Row="9" Grid.Column="1"/>
+        <TextBox Name="tbDescription" Text="{Binding Description}" Grid.Row="10" Grid.Column="1"/>
+        
+        <DockPanel Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" LastChildFill="False">
+            <Button DockPanel.Dock="Bottom" Content="Ajouter" Click="ajouter_Click"/>
         </DockPanel>
     </Grid>
 </Window>

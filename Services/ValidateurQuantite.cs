@@ -9,7 +9,7 @@ namespace Services
         {
             int result;
             if (!int.TryParse(value.ToString(), out result))
-                return new ValidationResult(false, "La masse doit être un nombre");
+                return new ValidationResult(false, "La quantité doit être un nombre");
 
             return ValidationResult.ValidResult;
         }

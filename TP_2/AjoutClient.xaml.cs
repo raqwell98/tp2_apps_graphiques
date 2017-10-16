@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace TP_2
 {
     /// <summary>
-    /// Logique d'interaction pour AjoutArbreArbuste.xaml
+    /// Logique d'interaction pour Window1.xaml
     /// </summary>
-    public partial class AjoutArbreArbuste : Window
+    public partial class Window1 : Window
     {
-        public AjoutArbreArbuste()
+        public Window1()
         {
             InitializeComponent();
         }

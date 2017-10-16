@@ -55,8 +55,7 @@ namespace TP_2
             Window fenetre = 
                 nomAppelant == "Annuelle" ? (Window)new AjoutAnnuelle() :
                 nomAppelant == "Legume" ? (Window)new AjoutLegume() :
-                nomAppelant == "Vivace" ? (Window)new AjoutVivace() : 
-                (Window)new AjoutArbreArbuste();
+                (Window)new AjoutVivace();
 
             fenetre.Title = "Formulaire " + nomAppelant;
             fenetre.Show();
