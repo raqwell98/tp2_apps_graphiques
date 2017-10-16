@@ -14,7 +14,9 @@ namespace Services
         {
             char[] str = value.ToString().ToCharArray();
             if (!char.IsUpper(str[0]))
-                return new ValidationResult(false, "Le nom doit commencer par une lettre majuscule");
+                return new ValidationResult(false, "Le champ doit commencer par une lettre majuscule");
+            if (!(str.Length > 0 && str.Length <= 30))
+                return new ValidationResult(false, "Le champ doit comporter entre 1 et 30 lettres");
 
             return ValidationResult.ValidResult;
         }

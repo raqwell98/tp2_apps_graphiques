@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace TP_2
 {
     /// <summary>
-    /// Logique d'interaction pour Window1.xaml
+    /// Logique d'interaction pour AjoutClient.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class AjoutClient : Window
     {
-        public Window1()
+        public AjoutClient()
         {
             InitializeComponent();
+        }
+
+        private void ajouter_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

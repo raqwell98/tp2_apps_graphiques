@@ -556,7 +556,7 @@ namespace Services
                     annuelles.Add(new Plante()
                     {
                         Nom = (string)row["Nom"],
-                        Caracteristiques = (string)row["Description"],
+                        Description = (string)row["Description"],
                         SKU = (string)row["SKU"],
                         Prix = new Prix() { PrixUnitaire = (float)row["PrixUnitaire"], PrixVente = (float)row["PrixUnitaire"] },
                         Format = (string)row["Format"],
@@ -579,7 +579,7 @@ namespace Services
                     legumes.Add(new Legume()
                     {
                         Nom = (string)row["Nom"],
-                        Caracteristiques = (string)row["Description"],
+                        Description = (string)row["Description"],
                         SKU = (string)row["SKU"],
                         Prix = new Prix() { PrixUnitaire = (float)row["PrixUnitaire"], PrixVente = (float)row["PrixUnitaire"] },
                         Format = (string)row["Format"],
