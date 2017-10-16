@@ -53,6 +53,7 @@
     <Compile Include="ValidateurCodePostal.cs" />
     <Compile Include="ValidateurCourriel.cs" />
     <Compile Include="ValidateurDescription.cs" />
+    <Compile Include="ValidateurId.cs" />
     <Compile Include="ValidateurNom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidateurQuantite.cs" />
