@@ -9,7 +9,7 @@ using Affaire;
 
 namespace Services
 {
-    class ValidateurSKU : ValidationRule
+    public class ValidateurSKU : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {

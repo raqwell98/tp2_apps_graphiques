@@ -10,6 +10,19 @@
     <Window.Resources>
         <Services:ConvertisseurDeVisibilite x:Key="convertisseur" />
         <Services:ConvertisseurConnexion x:Key="convertisseur2" />
+        <DataTemplate x:Key="planteTemplate">
+            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="4" MinWidth="80">
+                <StackPanel Margin="3" Background="LawnGreen">
+                    <TextBlock Text="{Binding Nom}" />
+                    <TextBlock Text="{Binding DescriptionDetaillee}"/>
+                    <TextBlock Text="{Binding SKU}"/>
+                    <TextBlock Text="{Binding Prix}"/>
+                    <TextBlock Text="{Binding Quantite}"/>
+                    <TextBlock Text="{Binding Format}"/>
+                    <TextBlock Text="{Binding Description}"/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
@@ -24,11 +37,11 @@
                     <MenuItem Name="legume" Header="Légume" Click="ajout_Click"/>
                     <MenuItem Name="arbre" Header="Arbre ou arbuste" Click="ajout_Click"/>
                 </MenuItem>
-                <MenuItem Header="_Consulter"/>
+                <MenuItem Header="_Consulter" Click="consultation_Click"/>
             </MenuItem>
             <MenuItem Header="_Clients">
                 <MenuItem Name="ajoutClient" Header="_Ajouter" Click="ajoutClient_Click"/>
-                <MenuItem Name="consultationClient" Header="_Consulter"/>
+                <MenuItem Name="consultationClient" Header="_Consulter" Click="consultation_Click"/>
             </MenuItem>
             <MenuItem  Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Trier par">
                 <MenuItem Header="Noms" Click="trier_Click"/>
@@ -36,7 +49,7 @@
             </MenuItem>
         </Menu>
         <DockPanel Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}">
-            <ListBox   Name="lbConsultation" ItemsSource="{Binding Path=Plantes}">
+            <ListBox   Name="lbConsultation" ItemsSource="{Binding Path=Plantes}" ItemTemplate="{StaticResource planteTemplate}">
             </ListBox>
         </DockPanel>
     </DockPanel>

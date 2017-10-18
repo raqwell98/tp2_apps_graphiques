@@ -83,5 +83,14 @@ namespace TP_2
         {
             new AjoutClient().Show();
         }
+
+        private void consultation_Click(object sender, RoutedEventArgs e)
+        {
+            string consultation = ((MenuItem)sender).Header.ToString();
+            if(consultation == "consultationClient")
+            {
+
+            }
+        }
     }
 }
