@@ -57,6 +57,7 @@
     <Compile Include="ValidateurNom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidateurQuantite.cs" />
+    <Compile Include="ValidateurSKU.cs" />
     <Compile Include="ValidateurTelephone.cs" />
     <Compile Include="ValidationId.cs" />
     <Compile Include="ValidationMp.cs" />
