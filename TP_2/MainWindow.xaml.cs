@@ -81,7 +81,7 @@ namespace TP_2
 
         private void ajoutClient_Click(object sender, RoutedEventArgs e)
         {
-            
+            new AjoutClient().Show();
         }
     }
 }

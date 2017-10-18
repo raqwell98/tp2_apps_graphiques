@@ -55,7 +55,15 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox Name="tbID" Grid.Row="2" Grid.Column="1" Text="{Binding Id}"/>
+        <TextBox Name="tbID" Grid.Row="2" Grid.Column="1">
+            <TextBox.Text>
+                <Binding Path="Id" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <Services:ValidateurId ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <TextBox Name="tbNumTel" Grid.Row="3" Grid.Column="1" >
             <TextBox.Text>
                 <Binding Path="NumTel" Mode="TwoWay">

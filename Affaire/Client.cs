@@ -17,7 +17,7 @@ namespace Affaire
         private string province;
         private string codePostal;
 
-        public Client() { nom = ""; prenom = ""; id = ""; numTel = ""; courriel = ""; province = ""; codePostal = ""; }
+        public Client() { nom = ""; prenom = ""; id = ""; numTel = ""; courriel = ""; province = "Québec"; codePostal = ""; }
         public string Nom { get => nom; set { nom = value; OnPropertyChanged("Nom"); } }
         public string Prenom { get => prenom; set { prenom = value; OnPropertyChanged("Prenom"); } }
         public string Id { get => id; set { id = value; OnPropertyChanged("Id"); } }

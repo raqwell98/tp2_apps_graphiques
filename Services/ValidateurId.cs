@@ -9,14 +9,20 @@ using Affaire;
 
 namespace Services
 {
-    class ValidateurId : ValidationRule
+    public class ValidateurId : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             CollectionClientsObservable clients = new ScribeXML().recupererClients();
-            if (clients.ToList().First(x => x.Id == ((string)value)) == null)
-                return ValidationResult.ValidResult;
-            return new ValidationResult(false, "L'id de client éxiste déjà");
+            bool existeId = false;
+            try
+            {
+                if (clients.ToList().First(x => x.Id == ((string)value)) != null)
+                    existeId = true;
+            } catch (Exception e) { }
+            if (existeId)
+                return new ValidationResult(false, "L'id de client éxiste déjà");
+            return ValidationResult.ValidResult;
         }
     }
 }
