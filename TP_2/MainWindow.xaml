@@ -57,7 +57,7 @@
             </MenuItem>
             <MenuItem Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Clients">
                 <MenuItem  Visibility="{Binding Path=PeuxModifier, Converter={StaticResource convertisseur}}" Name="ajoutClient" Header="_Ajouter" Click="ajoutClient_Click"/>
-                <MenuItem Name="consultationClient" Header="_Consulter"/>
+                <MenuItem Name="consultationClient" Header="_Consulter" Click="consultation_Click"/>
             </MenuItem>
             <MenuItem  Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Trier par">
                 <MenuItem Header="Noms" Name="tri1" Click="trier_Click"/>
