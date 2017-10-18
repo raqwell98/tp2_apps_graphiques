@@ -12,10 +12,10 @@ namespace Affaire
         private bool estArbre;
         private bool estArbuste;
         public Vivace() : base(){ zone = 0; estArbre = false; estArbuste = false;  }
-        public int Zone { get => zone; set {  zone = value; OnPropertyChanged("Zone"); } }
+        public int Zone { get => zone; set {  zone = value; OnPropertyChanged("DescriptionDetaillee"); } }
 
-        public bool EstArbre { get => estArbre; set { estArbre = value; OnPropertyChanged("EstArbre"); } }
-        public bool EstArbuste { get => estArbuste; set { estArbuste = value; OnPropertyChanged("EstArbuste"); } }
+        public bool EstArbre { get => estArbre; set { estArbre = value; OnPropertyChanged("DescriptionDetaillee"); } }
+        public bool EstArbuste { get => estArbuste; set { estArbuste = value; OnPropertyChanged("DescriptionDetaillee"); } }
 
         public override string DescriptionDetaillee
         {

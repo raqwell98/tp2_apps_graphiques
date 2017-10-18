@@ -10,6 +10,22 @@
     <Window.Resources>
         <Services:ConvertisseurDeVisibilite x:Key="convertisseur" />
         <Services:ConvertisseurConnexion x:Key="convertisseur2" />
+        <DataTemplate x:Key="clientTemplate">
+            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="4" MinWidth="80">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Nom}" />
+                        <TextBlock Text="{Binding Path=Prenom}" />
+                    </StackPanel>
+                    <TextBlock Text="{Binding Path=Id}" />
+                    <TextBlock Text="{Binding Path=NumTel}"/>
+                    <TextBlock Text="{Binding Path=Courriel}"/>
+                    <TextBlock Text="{Binding Path=Province}"/>
+                    <TextBlock Text="{Binding Path=CodePostal}"/>
+                    
+                </StackPanel>
+            </Border>
+        </DataTemplate>
         <DataTemplate x:Key="planteTemplate">
             <Border BorderThickness="1" BorderBrush="Black" CornerRadius="4" MinWidth="80">
                 <StackPanel Margin="3" Background="LawnGreen">

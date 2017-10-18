@@ -14,9 +14,9 @@ namespace Affaire
 
         public Legume() : base() { tempsRecolte = 0; type = 0; estVivace = false; }
 
-        public int TempsRecolte { get => tempsRecolte; set {  tempsRecolte = value; OnPropertyChanged("TempsRecolte"); } }
-        public int Type { get => type; set {  type = value; OnPropertyChanged("Type"); } }
-        public bool EstVivace { get => estVivace; set { estVivace = value; OnPropertyChanged("EstVivace"); } }
+        public int TempsRecolte { get => tempsRecolte; set {  tempsRecolte = value; OnPropertyChanged("DescriptionDetaillee"); } }
+        public int Type { get => type; set {  type = value; OnPropertyChanged("DescriptionDetaillee"); } }
+        public bool EstVivace { get => estVivace; set { estVivace = value; OnPropertyChanged("DescriptionDetaillee"); } }
 
         public override string DescriptionDetaillee
         {
