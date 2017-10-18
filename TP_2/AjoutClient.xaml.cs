@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Affaire;
 
 namespace TP_2
 {
@@ -26,7 +27,10 @@ namespace TP_2
 
         private void ajouter_Click(object sender, RoutedEventArgs e)
         {
-
+                MainWindow main = ((MainWindow)System.Windows.Application.Current.MainWindow);
+                main.Persistance.Clients.Add((Client)this.DataContext);
+                main.Persistance.sauvegarderDonnees();
+                this.Close();
         }
     }
 }

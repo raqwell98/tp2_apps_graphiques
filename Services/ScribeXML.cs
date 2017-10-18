@@ -497,51 +497,11 @@ namespace Services
             dt2.Rows.Add(dr);
 
 
-         /*   DataTable dt3;
-            dt3 = new DataTable();
-            dt3.TableName = "Vivace";
-            dt3.Columns.Add("Nom", typeof(string));
-            dt3.Columns.Add("Description", typeof(string));
-            dt3.Columns.Add("SKU", typeof(string));
-            dt3.Columns.Add("PrixUnitaire", typeof(float));
-            dt3.Columns.Add("PrixVente", typeof(float));
-            dt3.Columns.Add("Format", typeof(string));
-            dt3.Columns.Add("TFDebut", typeof(int));
-            dt3.Columns.Add("TFFin", typeof(int));
-            dt3.Columns.Add("Quantite", typeof(int));
-            dt3.Columns.Add("DX", typeof(int));
-            dt3.Columns.Add("DY", typeof(int));
-            dt3.Columns.Add("Exposition", typeof(string));
-            dt3.Columns.Add("Zone", typeof(int));
-            dt3.Columns.Add("EstArbre", typeof(bool));
-            dt3.Columns.Add("EstArbuste", typeof(bool));
-
-            dr = dt3.NewRow();
-            dr["Nom"] = "Chicago Knockout";
-            dr["Description"] = "";
-            dr["SKU"] = "3001";
-            dr["PrixUnitaire"] = 1.99f;
-            dr["TFDebut"] = 1;
-            dr["TFFin"] = 1;
-            dr["Quantite"] = 1;
-            dr["DX"] = 45;
-            dr["DY"] = 65;
-            dr["Exposition"] = 1;
-            dr["Zone"] = 4;
-            dr["EstArbre"] = false;
-            dr["EstArbuste"] = false;
-            dr["Format"] = "pot 4&quot;";
-            dr["PrixVente"] = 4.99f;
-            dr["Exposition"] = "mi-ombre";
-            dt3.Rows.Add(dr);*/
-
             dt.AcceptChanges();
             dt2.AcceptChanges();
-           // dt3.AcceptChanges();
 
             dt.WriteXml(@"annuelles.xml", XmlWriteMode.WriteSchema);
             dt2.WriteXml(@"legumes.xml", XmlWriteMode.WriteSchema);
-           // dt3.WriteXml(@"vivaces.xml", XmlWriteMode.WriteSchema);
         }
         public List<Plante> recupererPlantesInitiales()
         {
