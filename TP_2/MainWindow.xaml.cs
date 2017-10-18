@@ -69,8 +69,12 @@ namespace TP_2
         {
             if (((MenuItem)sender).Header.ToString() == "SKUs")
                 persistance.Plantes.trierParSKU();
-            else
+            else if (((MenuItem)sender).Header.ToString() == "Noms")
                 persistance.Plantes.trierParNoms();
+            else if (((MenuItem)sender).Header.ToString() == "Provinces")
+                persistance.Clients.trierParProvinces();
+            else
+                persistance.Clients.trierParId();
             // Cool code linq qui mérite d'être conservé List<string> nomsPlante = persistance.Plantes.Select(x => x.Nom).ToList();
         }
 
@@ -87,9 +91,19 @@ namespace TP_2
         private void consultation_Click(object sender, RoutedEventArgs e)
         {
             string consultation = ((MenuItem)sender).Header.ToString();
-            if(consultation == "consultationClient")
+            if (consultation == "consultationClient")
             {
-
+                lbConsultation.ItemsSource = persistance.Clients;
+                lbConsultation.ItemTemplate =  (DataTemplate)Resources["clientTemplate"];
+                tri1.Header = "Provinces";
+                tri2.Header = "Identifiants";
+            }
+            else
+            {
+                lbConsultation.ItemsSource = persistance.Plantes;
+                lbConsultation.ItemTemplate = (DataTemplate)Resources["planteTemplate"];
+                tri1.Header = "Noms";
+                tri2.Header = "SKUs";
             }
         }
     }

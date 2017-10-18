@@ -24,7 +24,6 @@ namespace Affaire
                 return base.DescriptionDetaillee + "\nPlante zonée " + Constantes.Zones[zone] + ". \n" +
                      "Est une vivace." + (estArbre ? "\nEst un arbre" : estArbuste? "\nEst un arbuste." : "");
             }
-            set => base.DescriptionDetaillee = value;
         }
     }
 }

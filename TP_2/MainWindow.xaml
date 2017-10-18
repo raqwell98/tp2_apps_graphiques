@@ -60,12 +60,12 @@
                 <MenuItem Name="consultationClient" Header="_Consulter" Click="consultation_Click"/>
             </MenuItem>
             <MenuItem  Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Trier par">
-                <MenuItem Header="Noms" Click="trier_Click"/>
-                <MenuItem Header="SKUs"  Click="trier_Click"/>
+                <MenuItem Header="Noms" Name="tri1" Click="trier_Click"/>
+                <MenuItem Header="SKUs" Name="tri2"  Click="trier_Click"/>
             </MenuItem>
         </Menu>
         <DockPanel Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}">
-            <ListBox   Name="lbConsultation" ItemsSource="{Binding Path=Plantes}" ItemTemplate="{StaticResource planteTemplate}">
+            <ListBox  Name="lbConsultation" ItemsSource="{Binding Path=Plantes}" ItemTemplate="{StaticResource planteTemplate}">
             </ListBox>
         </DockPanel>
     </DockPanel>

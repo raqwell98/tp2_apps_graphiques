@@ -26,7 +26,6 @@ namespace Affaire
                     "Plante d'" + Constantes.Saisons[type] + "." +
                     (estVivace ? "\nEst une vivace." : "");
             }
-            set => base.DescriptionDetaillee = value;
         }
     }
 }

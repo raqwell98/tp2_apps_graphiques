@@ -33,7 +33,6 @@ namespace Affaire
                     "Dimension de " + dimension.ToString() + ". \n" +
                     "Exposition " + Constantes.Expositions[exposition] + ".";
             }
-            set => base.DescriptionDetaillee = value;
         }
 
     }
