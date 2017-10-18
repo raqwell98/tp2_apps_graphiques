@@ -90,7 +90,7 @@ namespace TP_2
 
         private void consultation_Click(object sender, RoutedEventArgs e)
         {
-            string consultation = ((MenuItem)sender).Header.ToString();
+            string consultation = ((MenuItem)sender).Name.ToString();
             if (consultation == "consultationClient")
             {
                 lbConsultation.ItemsSource = persistance.Clients;
