@@ -7,26 +7,16 @@ using System.Threading.Tasks;
 
 namespace Affaire
 {
-    public class Prix : INotifyPropertyChanged
+    public class Prix 
     {
         private float prixVente;
         private float prixUnitaire;
 
         public Prix() { PrixVente = 0; prixUnitaire = 0; }
 
-        public float PrixVente { get => prixVente; set {  prixVente = value; OnPropertyChanged("PrixVente"); } }
-        public float PrixUnitaire { get => prixUnitaire; set {  prixUnitaire = value; OnPropertyChanged("PrixUnitaire"); } }
+        public float PrixVente { get => prixVente; set =>  prixVente = value; }
+        public float PrixUnitaire { get => prixUnitaire; set => prixUnitaire = value; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged(string nomPropriete)
-
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(nomPropriete));
-            }
-        }
     }
 }
