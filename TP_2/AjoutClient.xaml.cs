@@ -27,13 +27,15 @@ namespace TP_2
 
         private void ajouter_Click(object sender, RoutedEventArgs e)
         {
-            if(champsCorrects())
+            if (champsCorrects())
             {
                 MainWindow main = ((MainWindow)System.Windows.Application.Current.MainWindow);
                 main.Persistance.Clients.Add((Client)this.DataContext);
                 main.Persistance.sauvegarderDonnees();
                 this.Close();
             }
+            else
+                this.torcerValidation();
         }
         private bool champsCorrects()
         {
@@ -42,6 +44,15 @@ namespace TP_2
             return champsRemplis && !(Validation.GetHasError(tbNom) || Validation.GetHasError(tbPrenom) ||
                                           Validation.GetHasError(tbNumTel) || Validation.GetHasError(tbID) ||
                                           Validation.GetHasError(tbCourriel) || Validation.GetHasError(tbCodePostal));
+        }
+        private void torcerValidation()
+        {
+            tbNom.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            tbPrenom.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            tbID.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            tbNumTel.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            tbCourriel.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            tbCodePostal.GetBindingExpression(TextBox.TextProperty).UpdateSource();
         }
     }
 }

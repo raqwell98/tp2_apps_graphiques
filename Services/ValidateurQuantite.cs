@@ -14,6 +14,8 @@ namespace Services
             int quantite = Convert.ToInt32(value);
             if( quantite < 0)
                 return new ValidationResult(false, "La quantité ne peut pas être négative");
+            if (value.ToString().Length == 0)
+                return new ValidationResult(false, "Le champ ne peut être vide");
             return ValidationResult.ValidResult;
         }
     }

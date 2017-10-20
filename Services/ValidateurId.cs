@@ -18,6 +18,8 @@ namespace Services
                 return new ValidationResult(false, "L'id doit être un nombre");
             if (new ScribeXML().recupererClients().ToList().Exists(x => x.Id == ((string)value)))
                 return new ValidationResult(false, "L'id de client éxiste déjà");
+            if (value.ToString().Length == 0)
+                return new ValidationResult(false, "Le champ ne peut être vide");
             return ValidationResult.ValidResult;
         }
     }

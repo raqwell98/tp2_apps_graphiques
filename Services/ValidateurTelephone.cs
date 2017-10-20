@@ -14,6 +14,8 @@ namespace Services
 
             if (!result.Success)
                 return new ValidationResult(false, "Vous devez entrer un numéro de téléphone valide (ex: 555-555-5555)");
+            if (telephone.Length == 0)
+                return new ValidationResult(false, "Le champ ne peut être vide");
 
             return ValidationResult.ValidResult;
         }
