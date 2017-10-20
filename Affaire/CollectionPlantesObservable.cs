@@ -23,7 +23,7 @@ namespace Affaire
         public void trierParSKU()
         {
             List<Plante> plantesOrdonnes = this.ToList();
-            plantesOrdonnes.Sort((x,y) => x.SKU.CompareTo(y.SKU));
+            plantesOrdonnes.Sort((x,y) => Convert.ToInt32(x.SKU).CompareTo(Convert.ToInt32(y.SKU)));
             this.Clear();
             this.Add(plantesOrdonnes);
         }

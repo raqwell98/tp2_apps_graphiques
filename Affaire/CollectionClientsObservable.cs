@@ -29,7 +29,7 @@ namespace Affaire
         public void trierParId()
         {
             List<Client> clientsOrdonnes = this.ToList();
-            clientsOrdonnes.Sort((x,y) => x.Id.CompareTo(y.Id));
+            clientsOrdonnes.Sort((x,y) => Convert.ToInt32(x.Id).CompareTo(Convert.ToInt32(y.Id)));
             this.Clear();
             this.Add(clientsOrdonnes);
         }
