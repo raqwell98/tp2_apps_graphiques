@@ -18,8 +18,6 @@ namespace Affaire
 
 
         public Plante() : base() { tfloraison = new TempsFloraison(); dimension = new Dimension(); exposition = 0; }
-
-        public override string ToString() { return Nom + " (" + SKU + ") \n"+ DescriptionDetaillee; }
         public TempsFloraison Tfloraison { get => tfloraison; set {  tfloraison = value; OnPropertyChanged("DescriptionDetaillee"); } }
         public Dimension Dimension { get => dimension; set {  dimension = value; OnPropertyChanged("DescriptionDetaillee"); } }
         public int Exposition { get => exposition; set {  exposition = value; OnPropertyChanged("DescriptionDetaillee"); } }
@@ -29,7 +27,7 @@ namespace Affaire
             get
             {
                 return base.DescriptionDetaillee + (Description == "" ? "" : "\n") +
-                    "Temps floraison de " + tfloraison.ToString() + ". \n" +
+                    "Temps floraison de " + tfloraison.ToString() +
                     "Dimension de " + dimension.ToString() + ". \n" +
                     "Exposition " + Constantes.Expositions[exposition] + ".";
             }
