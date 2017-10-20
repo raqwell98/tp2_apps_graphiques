@@ -41,6 +41,7 @@
             <TextBox.Text>
                 <Binding Path="Nom" Mode="TwoWay">
                     <Binding.ValidationRules>
+                        <Services:ValidateurChampRequis ValidationStep="RawProposedValue"/>
                         <Services:ValidateurNom ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
@@ -50,6 +51,7 @@
             <TextBox.Text>
                 <Binding Path="Prenom" Mode="TwoWay">
                     <Binding.ValidationRules>
+                        <Services:ValidateurChampRequis ValidationStep="RawProposedValue"/>
                         <Services:ValidateurNom ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
@@ -59,15 +61,17 @@
             <TextBox.Text>
                 <Binding Path="Id" Mode="TwoWay">
                     <Binding.ValidationRules>
+                        <Services:ValidateurChampRequis ValidationStep="RawProposedValue"/>
                         <Services:ValidateurId ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox Name="tbNumTel" Grid.Row="3" Grid.Column="1" >
+        <TextBox Name="tbNumTel" Grid.Row="3" Grid.Column="1">
             <TextBox.Text>
                 <Binding Path="NumTel" Mode="TwoWay">
                     <Binding.ValidationRules>
+                        <Services:ValidateurChampRequis ValidationStep="RawProposedValue"/>
                         <Services:ValidateurTelephone ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
@@ -77,6 +81,7 @@
             <TextBox.Text>
                 <Binding Path="Courriel" Mode="TwoWay">
                     <Binding.ValidationRules>
+                        <Services:ValidateurChampRequis ValidationStep="RawProposedValue"/>
                         <Services:ValidateurCourriel ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
@@ -87,6 +92,7 @@
             <TextBox.Text>
                 <Binding Path="CodePostal" Mode="TwoWay">
                     <Binding.ValidationRules>
+                        <Services:ValidateurChampRequis ValidationStep="RawProposedValue"/>
                         <Services:ValidateurCodePostal ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
@@ -94,7 +100,26 @@
         </TextBox>
 
         <DockPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" LastChildFill="False">
-            <Button DockPanel.Dock="Bottom" Content="Ajouter" Click="ajouter_Click"/>
+            <Button DockPanel.Dock="Bottom" Name="btAjouterClient" Content="Ajouter" Click="ajouter_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tbNom}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tbPrenom}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tbID}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tbNumTel}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tbCourriel}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tbCodePostal}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </DockPanel>
     </Grid>
 </Window>
