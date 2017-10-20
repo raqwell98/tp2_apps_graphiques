@@ -22,7 +22,7 @@
             <Grid.BindingGroup>
                 <BindingGroup Name="idGroupe">
                     <BindingGroup.ValidationRules>
-                        <Services:ValidationId/>
+                        <Services:ValidateurUtilisateur/>
                     </BindingGroup.ValidationRules>
                 </BindingGroup>
             </Grid.BindingGroup>
@@ -45,7 +45,7 @@
             <Grid.BindingGroup>
                 <BindingGroup Name="mpGroupe">
                     <BindingGroup.ValidationRules>
-                        <Services:ValidationMp/>
+                        <Services:ValidateurMp/>
                     </BindingGroup.ValidationRules>
                 </BindingGroup>
             </Grid.BindingGroup>

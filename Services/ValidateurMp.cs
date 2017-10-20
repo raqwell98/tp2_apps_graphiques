@@ -1,28 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using Affaire;
+using System.Windows.Controls;
+using System.Globalization;
 using System.Windows.Data;
 
 namespace Services
 {
-    public class ValidationId : ValidationRule
+    public class ValidateurMp : ValidationRule
     {
-
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             BindingGroup bindingGroup = (BindingGroup)value;
             Affaire.Connexion con = (Affaire.Connexion)bindingGroup.Items[0];
-            if (Constantes.Utilisateur.estValide(con.Utilisateur.Identifiant))
+
+            if (Constantes.MotDePasse.estValide(con.MotDePasse))
             {
                 return new ValidationResult(true, null);
             }
             return new ValidationResult(false,
-                      "Cet identifiant n'existe pas.");
+                      "Mot de passe incorrect.");
+
         }
     }
 }

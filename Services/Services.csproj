@@ -59,8 +59,8 @@
     <Compile Include="ValidateurQuantite.cs" />
     <Compile Include="ValidateurSKU.cs" />
     <Compile Include="ValidateurTelephone.cs" />
-    <Compile Include="ValidationId.cs" />
-    <Compile Include="ValidationMp.cs" />
+    <Compile Include="ValidateurUtilisateur.cs" />
+    <Compile Include="ValidateurMp.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Affaire\Affaire.csproj">
