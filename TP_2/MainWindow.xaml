@@ -150,9 +150,9 @@
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem FontFamily="Comic sans MS" Header="_Options">
-                <MenuItem FontFamily="Comic sans MS" Header="{Binding Path=Connecte, Converter={StaticResource convertisseur2}}" Click="deconnecter_Click"/>
-                <MenuItem FontFamily="Comic sans MS" Visibility="{Binding Path=PeuxTout, Converter={StaticResource convertisseur}}" Header="Peuplement initial" Click="peupler_Click"/>
+            <MenuItem Header="_Options">
+                <MenuItem Header="{Binding Path=Connecte, Converter={StaticResource convertisseur2}}" Click="deconnecter_Click"/>
+                <MenuItem Visibility="{Binding Path=PeuxTout, Converter={StaticResource convertisseur}}" Header="Peuplement initial" Click="peupler_Click"/>
             </MenuItem>
             <MenuItem   Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Produits">
                 <MenuItem   Visibility="{Binding Path=PeuxModifier, Converter={StaticResource convertisseur}}" Name="miAjout" Header="_Nouveau">
