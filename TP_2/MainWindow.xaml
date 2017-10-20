@@ -11,30 +11,138 @@
         <Services:ConvertisseurDeVisibilite x:Key="convertisseur" />
         <Services:ConvertisseurConnexion x:Key="convertisseur2" />
         <DataTemplate x:Key="clientTemplate">
-            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="4" MinWidth="80">
+            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="1" MinWidth="80">
                 <StackPanel Background="LightBlue">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Path=Nom}" />
-                        <TextBlock Text="{Binding Path=Prenom}" />
+                    <StackPanel  HorizontalAlignment="Center"  Orientation="Horizontal">
+                        <TextBlock FontSize="20" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Path=Prenom}" />
+                        <TextBlock Text=" " />
+                        <TextBlock FontSize="20" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Path=Nom}" />
                     </StackPanel>
-                    <TextBlock Text="{Binding Path=Id}" />
-                    <TextBlock Text="{Binding Path=NumTel}"/>
-                    <TextBlock Text="{Binding Path=Courriel}"/>
-                    <TextBlock Text="{Binding Path=Province}"/>
-                    <TextBlock Text="{Binding Path=CodePostal}"/>
+                    <Border BorderThickness="0,0,0,1" BorderBrush="Black">
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="ID: "/>
+                            <TextBlock FontWeight="Heavy" FontFamily="Comic Sans MS" Text="{Binding Path=Id}"/>
+                        </StackPanel>
+                    </Border>
+                    <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Path=NumTel}"/>
+                        <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Path=Courriel}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Path=Province}"/>
+                        <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text=" ("/>
+                        <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Path=CodePostal}"/>
+                        <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text=")"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="clientTemplateTrie">
+            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="1" MinWidth="80">
+                <StackPanel Background="LightBlue">
+                    <StackPanel  HorizontalAlignment="Center"  Orientation="Horizontal">
+                        <TextBlock FontSize="20" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Path=Prenom}" />
+                        <TextBlock Text=" " />
+                        <TextBlock FontSize="20" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Path=Nom}" />
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="ID: "/>
+                        <TextBlock FontWeight="Heavy" FontFamily="Comic Sans MS" Text="{Binding Path=Id}"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <StackPanel.Style>
+                            <Style>
+                                <Setter Property="StackPanel.Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={
+                        RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem }}}"
+                                 Value="True">
+                                        <Setter Property="StackPanel.Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <Border BorderThickness="0,1,0,0" BorderBrush="Black">
+                            <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Path=NumTel}"/>
+                        </Border>
+                        <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Path=Courriel}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Path=Province}"/>
+                            <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text=" ("/>
+                            <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Path=CodePostal}"/>
+                            <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text=")"/>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="planteTemplate">
-            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="4" MinWidth="80">
-                <StackPanel Background="LawnGreen">
-                    <TextBlock Text="{Binding Nom}" />
-                    <TextBlock Text="{Binding DescriptionDetaillee}"/>
-                    <TextBlock Text="{Binding SKU}"/>
-                    <TextBlock Text="{Binding Prix}"/>
-                    <TextBlock Text="{Binding Quantite}"/>
-                    <TextBlock Text="{Binding Format}"/>
-                    <TextBlock Text="{Binding Description}"/>
+            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="1" MinWidth="80">
+                <StackPanel  Background="LawnGreen">
+                    <TextBlock FontSize="20" HorizontalAlignment="Center"  FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Nom}" />
+                    <Border BorderThickness="0,0,0,1" BorderBrush="Black">
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="SKU: "/>
+                            <TextBlock FontWeight="Heavy" FontFamily="Comic Sans MS" Text="{Binding SKU}"/>
+                        </StackPanel>
+                    </Border>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="Prix: "/>
+                        <TextBlock FontWeight="Heavy" FontFamily="Comic Sans MS" Text="{Binding Prix.PrixUnitaire}"/>
+                        <TextBlock  FontWeight="Light" FontFamily="Comic Sans MS" Text="$ ("/>
+                        <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Prix.PrixVente}"/>
+                        <TextBlock  FontWeight="Light" FontFamily="Comic Sans MS" Text="$)"/>
+                    </StackPanel>
+                    <StackPanel  Orientation="Horizontal">
+                        <TextBlock  FontWeight="Light" FontFamily="Comic Sans MS" Text="En inventaire: "/>
+                        <TextBlock FontWeight="Heavy" FontFamily="Comic Sans MS" Text="{Binding Quantite}"/>
+                        <TextBlock Text=" "/>
+                        <TextBlock  FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Format}"/>
+                    </StackPanel>
+                    <Border BorderThickness="0,1,0,0" BorderBrush="Black">
+                        <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding DescriptionDetaillee}"/>
+                    </Border>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="planteTemplateTrie">
+            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="1" MinWidth="80">
+                <StackPanel  Background="LawnGreen">
+                    <TextBlock FontSize="20" HorizontalAlignment="Center"  FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Nom}" />
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="SKU: "/>
+                        <TextBlock FontWeight="Heavy" FontFamily="Comic Sans MS" Text="{Binding SKU}"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <StackPanel.Style>
+                            <Style>
+                                <Setter Property="StackPanel.Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={
+                        RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem }}}"
+                                 Value="True">
+                                        <Setter Property="StackPanel.Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <Border BorderThickness="0,1,0,0" BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="Prix: "/>
+                                <TextBlock FontWeight="Heavy" FontFamily="Comic Sans MS" Text="{Binding Prix.PrixUnitaire}"/>
+                                <TextBlock  FontWeight="Light" FontFamily="Comic Sans MS" Text="$ ("/>
+                                <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Prix.PrixVente}"/>
+                                <TextBlock  FontWeight="Light" FontFamily="Comic Sans MS" Text="$)"/>
+                            </StackPanel>
+                        </Border>
+                        <StackPanel  Orientation="Horizontal">
+                            <TextBlock  FontWeight="Light" FontFamily="Comic Sans MS" Text="En inventaire: "/>
+                            <TextBlock FontWeight="Heavy" FontFamily="Comic Sans MS" Text="{Binding Quantite}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock  FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Format}"/>
+                        </StackPanel>
+                        <Border BorderThickness="0,1,0,0" BorderBrush="Black">
+                            <TextBlock FontStyle="Italic" FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding DescriptionDetaillee}"/>
+                        </Border>
+                    </StackPanel>
                 </StackPanel>
             </Border>
         </DataTemplate>
@@ -64,7 +172,7 @@
             </MenuItem>
         </Menu>
         <DockPanel Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}">
-            <ListBox  Name="lbConsultation" ItemsSource="{Binding Path=Plantes}" ItemTemplate="{StaticResource planteTemplate}">
+            <ListBox HorizontalContentAlignment="Stretch" Name="lbConsultation" ItemsSource="{Binding Path=Plantes}" ItemTemplate="{StaticResource planteTemplate}">
             </ListBox>
         </DockPanel>
     </DockPanel>

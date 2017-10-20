@@ -10,16 +10,15 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class Persistance : INotifyPropertyChanged
+    public class Persistance 
     {
         private CollectionClientsObservable clients;
         private CollectionPlantesObservable plantes;
         private ScribeXML scribe;
 
-        public CollectionPlantesObservable Plantes { get => plantes; set { plantes = value; sauvegarderDonnees(); OnPropertyChanged("Plantes"); } }
+        public CollectionPlantesObservable Plantes { get => plantes; set => plantes = value; }
 
-        public CollectionClientsObservable Clients { get => clients; set { clients = value; sauvegarderDonnees();  OnPropertyChanged("Clients"); }
-}
+        public CollectionClientsObservable Clients { get => clients; set => clients = value; }
 
         public Persistance()
         {
@@ -32,14 +31,10 @@ namespace Services
         {
             scribe.inscrirePlantesInitiales();
             scribe.inscrireClientsInitiales();
-            List<Client> clients = scribe.recupererClientsInitiales();
-            List<Plante> plantes = scribe.recupererPlantesInitiales();
-            clients.AddRange(this.clients.ToList());
-            plantes.AddRange(this.plantes.ToList());
-            Clients = new CollectionClientsObservable(clients);
-            Plantes = new CollectionPlantesObservable(plantes);
-            File.Delete(@"annuelles.xml");
-            File.Delete(@"legumes.xml");
+            clients.Add(scribe.recupererClientsInitiales());
+            plantes.Add(scribe.recupererPlantesInitiales());
+            sauvegarderDonnees();
+
         }
 
         public void sauvegarderDonnees()
@@ -48,20 +43,7 @@ namespace Services
             clients.trierParNoms();
             scribe.inscriresClients(clients);
             scribe.inscriresPlantes(plantes);
-            plantes = scribe.recupererPlantes();
-            clients = scribe.recupererClients();
         }
        
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string nomPropriete)
-
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(nomPropriete));
-            }
-        }
     }
 }

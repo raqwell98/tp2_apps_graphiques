@@ -12,11 +12,6 @@ namespace Services
 {
     public class ValidationMp : ValidationRule
     {
-
-        public ValidationMp()
-        {
-        }
-
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             BindingGroup bindingGroup = (BindingGroup)value;

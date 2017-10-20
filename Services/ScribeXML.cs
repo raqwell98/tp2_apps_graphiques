@@ -44,7 +44,7 @@ namespace Services
                 Reader.Close();
 
             }
-            catch (Exception e) {}
+            catch (Exception) {}
             return plantes;
         }
 
@@ -59,7 +59,7 @@ namespace Services
                 Reader.Close();
 
             }
-            catch (Exception e) { }
+            catch (Exception) { }
             return clients;
         }
 
@@ -81,7 +81,7 @@ namespace Services
             dr["Nom"] = "Bernard";
             dr["Prenom"] = "Adam";
             dr["Id"] = "1000";
-            dr["NumTel"] = "4182285034";
+            dr["NumTel"] = "418-228-5034";
             dr["Courriel"] = "adambernard@hotmail.com";
             dr["CodePostal"] = "g0a 1a2";
             dr["Province"] = "Québec";
@@ -91,7 +91,7 @@ namespace Services
             dr["Nom"] = "Demers";
             dr["Prenom"] = "Charle";
             dr["Id"] = "1001";
-            dr["NumTel"] = "4183325089";
+            dr["NumTel"] = "418-332-5089";
             dr["Courriel"] = "demersCharle@hotmail.com";
             dr["CodePostal"] = "g0b 2b3";
             dr["Province"] = "Québec";
@@ -123,7 +123,7 @@ namespace Services
                     });
                 }
             }
-            catch (Exception e1) { }
+            catch (Exception) { }
 
             return clientsInitiales;
         }
@@ -156,7 +156,7 @@ namespace Services
             dr["DX"] = 25;
             dr["DY"] = 50;
             dr["Exposition"] = 1;
-            dr["Format"] = "pot 4&quot;";
+            dr["Format"] = "pot 4 pouces;";
             dr["PrixVente"] = 3.99f;
             dr["Exposition"] = "mi-ombre";
             dt.Rows.Add(dr);
@@ -172,7 +172,7 @@ namespace Services
             dr["DX"] = 25;
             dr["DY"] = 50;
             dr["Exposition"] = 1;
-            dr["Format"] = "pot 3&quot;";
+            dr["Format"] = "pot 3 pouces;";
             dr["PrixVente"] = 2.49f;
             dr["Exposition"] = "plein soleil";
             dt.Rows.Add(dr);
@@ -188,7 +188,7 @@ namespace Services
             dr["DX"] = 25;
             dr["DY"] = 50;
             dr["Exposition"] = 1;
-            dr["Format"] = "pot 3&quot;";
+            dr["Format"] = "pot 3 pouces;";
             dr["PrixVente"] = 2.49f;
             dr["Exposition"] = "plein soleil";
             dt.Rows.Add(dr);
@@ -204,7 +204,7 @@ namespace Services
             dr["DX"] = 25;
             dr["DY"] = 50;
             dr["Exposition"] = 1;
-            dr["Format"] = "pot 6&quot;";
+            dr["Format"] = "pot 6 pouces;";
             dr["PrixVente"] = 6.49f;
             dr["Exposition"] = "plein soleil";
             dt.Rows.Add(dr);
@@ -220,7 +220,7 @@ namespace Services
             dr["DX"] = 25;
             dr["DY"] = 50;
             dr["Exposition"] = 1;
-            dr["Format"] = "pot 4&quot;";
+            dr["Format"] = "pot 4 pouces;";
             dr["PrixVente"] = 3.99f;
             dr["Exposition"] = "plein soleil";
             dt.Rows.Add(dr);
@@ -237,7 +237,7 @@ namespace Services
             dr["DY"] = 50;
             dr["Exposition"] = 1;
             dr["PrixVente"] = 3.99f;
-            dr["Format"] = "pot 4&quot;";
+            dr["Format"] = "pot 4 pouces;";
             dr["Exposition"] = "mi-ombre";
             dt.Rows.Add(dr);
 
@@ -252,7 +252,7 @@ namespace Services
             dr["DX"] = 25;
             dr["DY"] = 50;
             dr["Exposition"] = 1;
-            dr["Format"] = "pot 3&quot;";
+            dr["Format"] = "pot 3 pouces;";
             dr["PrixVente"] = 2.49f;
             dr["Exposition"] = "plein soleil";
             dt.Rows.Add(dr);
@@ -268,7 +268,7 @@ namespace Services
             dr["DX"] = 25;
             dr["DY"] = 50;
             dr["Exposition"] = 1;
-            dr["Format"] = "pot 4&quot;";
+            dr["Format"] = "pot 4 pouces;";
             dr["PrixVente"] = 3.99f;
             dr["Exposition"] = "plein soleil";
             dt.Rows.Add(dr);
@@ -284,7 +284,7 @@ namespace Services
             dr["DX"] = 25;
             dr["DY"] = 50;
             dr["Exposition"] = 1;
-            dr["Format"] = "pot 4&quot;";
+            dr["Format"] = "pot 4 pouces;";
             dr["PrixVente"] = 3.99f;
             dr["Exposition"] = "plein soleil";
             dt.Rows.Add(dr);
@@ -300,7 +300,7 @@ namespace Services
             dr["DX"] = 25;
             dr["DY"] = 50;
             dr["Exposition"] = 1;
-            dr["Format"] = "pot 3&quot;";
+            dr["Format"] = "pot 3 pouces;";
             dr["PrixVente"] = 2.49f;
             dr["Exposition"] = "plein soleil";
             dt.Rows.Add(dr);
@@ -337,7 +337,7 @@ namespace Services
             dr["DY"] = 50;
             dr["Exposition"] = 1;
             dr["EstVivace"] = false;
-            dr["Format"] = "pot 3,5&quot;";
+            dr["Format"] = "pot 3,5 pouces;";
             dr["PrixVente"] = 2.69f;
             dr["Exposition"] = "plein soleil";
             dr["Type"] = 1;
@@ -470,7 +470,7 @@ namespace Services
             dr["DY"] = 50;
             dr["Exposition"] = 1;
             dr["EstVivace"] = false;
-            dr["Format"] = "pot 6&quot;";
+            dr["Format"] = "pot 6 pouces;";
             dr["PrixVente"] = 5.99f;
             dr["Exposition"] = "plein soleil";
             dr["Type"] = 1;
@@ -489,7 +489,7 @@ namespace Services
             dr["DY"] = 50;
             dr["Exposition"] = 1;
             dr["EstVivace"] = false;
-            dr["Format"] = "pot 3,5&quot;";
+            dr["Format"] = "pot 3,5 pouces;";
             dr["PrixVente"] = 2.69f;
             dr["Exposition"] = "plein soleil";
             dr["Type"] = 1;
@@ -528,7 +528,7 @@ namespace Services
                 }
                 plantesInitiales.AddRange(annuelles);
             }
-            catch (Exception e1) { }
+            catch (Exception) { }
             try
             {
                 dt = new DataTable();
@@ -555,7 +555,9 @@ namespace Services
                 }
                 plantesInitiales.AddRange(legumes);
             }
-            catch (Exception e2) { }
+            catch (Exception) { }
+            File.Delete(@"annuelles.xml");
+            File.Delete(@"legumes.xml");
             return plantesInitiales;
         }
     }

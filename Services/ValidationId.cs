@@ -13,10 +13,6 @@ namespace Services
     public class ValidationId : ValidationRule
     {
 
-        public ValidationId()
-        {
-        }
-
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             BindingGroup bindingGroup = (BindingGroup)value;

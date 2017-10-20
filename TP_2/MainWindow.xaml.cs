@@ -39,7 +39,6 @@ namespace TP_2
             persistance = new Persistance();
             this.DataContext = connexion;
             lbConsultation.DataContext = persistance;
-           // lbConsultation.ItemsSource = persistance.Plantes;
 
         }
 
@@ -67,15 +66,26 @@ namespace TP_2
 
         private void trier_Click(object sender, RoutedEventArgs e)
         {
-            if (((MenuItem)sender).Header.ToString() == "SKUs")
-                persistance.Plantes.trierParSKU();
-            else if (((MenuItem)sender).Header.ToString() == "Noms")
-                persistance.Plantes.trierParNoms();
-            else if (((MenuItem)sender).Header.ToString() == "Provinces")
-                persistance.Clients.trierParProvinces();
-            else
-                persistance.Clients.trierParId();
-            // Cool code linq qui mérite d'être conservé List<string> nomsPlante = persistance.Plantes.Select(x => x.Nom).ToList();
+            switch(((MenuItem)sender).Header.ToString())
+            {
+                case "SKUs":
+                    persistance.Plantes.trierParSKU();
+                    lbConsultation.ItemTemplate = (DataTemplate)Resources["planteTemplateTrie"];
+                    break;
+                case "Noms":
+                    persistance.Plantes.trierParNoms();
+                    lbConsultation.ItemTemplate = (DataTemplate)Resources["planteTemplateTrie"];
+                    break;
+                case "Provinces":
+                    persistance.Clients.trierParProvinces();
+                    lbConsultation.ItemTemplate = (DataTemplate)Resources["clientTemplateTrie"];
+                    break;
+                default:
+                    persistance.Clients.trierParId();
+                    lbConsultation.ItemTemplate = (DataTemplate)Resources["clientTemplateTrie"];
+                    break;
+            }
+          
         }
 
         private void deconnecter_Click(object sender, RoutedEventArgs e)
