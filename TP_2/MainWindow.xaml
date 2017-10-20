@@ -86,9 +86,9 @@
                     </Border>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="Prix: "/>
-                        <TextBlock FontWeight="Heavy" FontFamily="Comic Sans MS" Text="{Binding Prix.PrixUnitaire}"/>
+                        <TextBlock FontWeight="Heavy" FontFamily="Comic Sans MS" Text="{Binding Prix.PrixVente}"/>
                         <TextBlock  FontWeight="Light" FontFamily="Comic Sans MS" Text="$ ("/>
-                        <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Prix.PrixVente}"/>
+                        <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Prix.PrixUnitaire}"/>
                         <TextBlock  FontWeight="Light" FontFamily="Comic Sans MS" Text="$)"/>
                     </StackPanel>
                     <StackPanel  Orientation="Horizontal">
@@ -127,9 +127,9 @@
                         <Border BorderThickness="0,1,0,0" BorderBrush="Black">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="Prix: "/>
-                                <TextBlock FontWeight="Heavy" FontFamily="Comic Sans MS" Text="{Binding Prix.PrixUnitaire}"/>
+                                <TextBlock FontWeight="Heavy" FontFamily="Comic Sans MS" Text="{Binding Prix.PrixVente}"/>
                                 <TextBlock  FontWeight="Light" FontFamily="Comic Sans MS" Text="$ ("/>
-                                <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Prix.PrixVente}"/>
+                                <TextBlock FontWeight="Light" FontFamily="Comic Sans MS" Text="{Binding Prix.PrixUnitaire}"/>
                                 <TextBlock  FontWeight="Light" FontFamily="Comic Sans MS" Text="$)"/>
                             </StackPanel>
                         </Border>
