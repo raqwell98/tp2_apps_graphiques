@@ -27,10 +27,21 @@ namespace TP_2
 
         private void ajouter_Click(object sender, RoutedEventArgs e)
         {
+            if(champsCorrects())
+            {
                 MainWindow main = ((MainWindow)System.Windows.Application.Current.MainWindow);
                 main.Persistance.Clients.Add((Client)this.DataContext);
                 main.Persistance.sauvegarderDonnees();
                 this.Close();
+            }
+        }
+        private bool champsCorrects()
+        {
+            bool champsRemplis = tbNom.Text != "" && tbPrenom.Text != "" && tbID.Text != "" &&
+                 tbNumTel.Text != "" && tbCourriel.Text != "" && tbCodePostal.Text != "";
+            return champsRemplis && !(Validation.GetHasError(tbNom) || Validation.GetHasError(tbPrenom) ||
+                                          Validation.GetHasError(tbNumTel) || Validation.GetHasError(tbID) ||
+                                          Validation.GetHasError(tbCourriel) || Validation.GetHasError(tbCodePostal));
         }
     }
 }

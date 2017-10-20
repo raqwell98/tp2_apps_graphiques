@@ -35,5 +35,13 @@ namespace TP_2
             main.Persistance.sauvegarderDonnees();
             this.Close();
         }
+        private bool champsCorrects()
+        {
+            bool champsRemplis = tbNom.Text != "" && tbIdentifiant.Text != "" && tbQuantite.Text != "" &&
+                 tbNumTel.Text != "" && tbCourriel.Text != "" && tbCodePostal.Text != "";
+            return champsRemplis && !(Validation.GetHasError(tbNom) || Validation.GetHasError(tbPrenom) ||
+                                          Validation.GetHasError(tbNumTel) || Validation.GetHasError(tbID) ||
+                                          Validation.GetHasError(tbCourriel) || Validation.GetHasError(tbCodePostal));
+        }
     }
 }

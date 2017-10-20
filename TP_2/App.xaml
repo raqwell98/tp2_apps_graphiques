@@ -4,12 +4,6 @@
              xmlns:local="clr-namespace:TP_2"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ControlTemplate x:Key="validationTemplate">
-            <DockPanel>
-                <TextBlock Foreground="Red" FontSize="20">!</TextBlock>
-                <AdornedElementPlaceholder/>
-            </DockPanel>
-        </ControlTemplate>
         <Style x:Key="textStyleTextBox" TargetType="TextBox">
             <Setter Property="Foreground" Value="#333333" />
             <Setter Property="MaxLength" Value="40" />

@@ -45,7 +45,7 @@
         <TextBlock Text="Format :" Grid.Row="8" Grid.Column="0"/>
         <TextBlock Text="Description :" Grid.Row="9" Grid.Column="0"/>
 
-        <TextBox Grid.Column="1" Grid.Row="0" Name="tbNom" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
+        <TextBox Grid.Column="1" Grid.Row="0" Name="tbNom" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="Nom" Mode="TwoWay">
                     <Binding.ValidationRules>
@@ -56,7 +56,7 @@
         </TextBox>
         <ComboBox SelectedItem="{Binding Exposition,  Converter={StaticResource convertisseurExposition}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Expositions}}" Name="cbExposition" Grid.Row="1" Grid.Column="1"/>
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
-            <TextBox Name="tbDimensionsX" Text="{Binding Dimension.X}"  Width="50" TextAlignment="Center"/>
+            <TextBox Name="tbDimensionsX" Text="0"  Width="50" TextAlignment="Center"/>
             <TextBlock Text="par" Width="30" TextAlignment="Center"/>
             <TextBox Name="tbDimensionsY" Text="{Binding Dimension.Y}" Width="50" TextAlignment="Center"/>
         </StackPanel>
@@ -76,7 +76,7 @@
         </TextBox>
         <TextBox Name="tbPrixUnitaire" Text="{Binding Prix.PrixUnitaire}" Grid.Row="5" Grid.Column="1"/>
         <TextBox Name="tbPrixVente" Text="{Binding Prix.PrixVente}" Grid.Row="6" Grid.Column="1"/>
-        <TextBox  Grid.Row="7" Grid.Column="1" Name="tbQuantite" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
+        <TextBox  Grid.Row="7" Grid.Column="1" Name="tbQuantite" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="Quantite" Mode="TwoWay">
                     <Binding.ValidationRules>
@@ -86,7 +86,15 @@
             </TextBox.Text>
         </TextBox>
         <TextBox Name="tbFormat" Text="{Binding Format}" Grid.Row="8" Grid.Column="1"/>
-        <TextBox Name="tbDescription" Text="{Binding Description}" Grid.Row="9" Grid.Column="1"/>
+        <TextBox Name="tbDescription" Grid.Row="9" Grid.Column="1">
+            <TextBox.Text>
+                <Binding Path="Description" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <Services:ValidateurDescription ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
         <DockPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" LastChildFill="False">
             <Button DockPanel.Dock="Bottom" Content="Ajouter" Click="ajouter_Click"/>

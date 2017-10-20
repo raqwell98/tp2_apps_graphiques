@@ -8,8 +8,8 @@ namespace Services
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             char[] str = value.ToString().ToCharArray();
-            if (!(str.Length > 0 && str.Length <= 30))
-                return new ValidationResult(false, "Le champ doit comporter entre 1 et 300 caractères");
+            if (!(str.Length > 0 && str.Length <= 100))
+                return new ValidationResult(false, "Le champ doit comporter entre 1 et 100 caractères");
 
             return ValidationResult.ValidResult;
         }

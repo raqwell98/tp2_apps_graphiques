@@ -13,7 +13,9 @@ namespace Services
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-
+            int result;
+            if (!int.TryParse(value.ToString(), out result))
+                return new ValidationResult(false, "Le SKU doit être un nombre");
             if (new ScribeXML().recupererPlantes().ToList().Exists(x => x.SKU == ((string)value)))
                 return new ValidationResult(false, "Le SKU du produit éxiste déjà");
             return ValidationResult.ValidResult;

@@ -50,7 +50,6 @@
     <Compile Include="ConvertisseurZone.cs" />
     <Compile Include="Persistance.cs" />
     <Compile Include="ScribeXML.cs" />
-    <Compile Include="ValidateurChampRequis.cs" />
     <Compile Include="ValidateurCodePostal.cs" />
     <Compile Include="ValidateurCourriel.cs" />
     <Compile Include="ValidateurDescription.cs" />

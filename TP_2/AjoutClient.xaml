@@ -37,21 +37,19 @@
         <TextBlock Text="Province :" Grid.Row="5" Grid.Column="0"/>
         <TextBlock Text="Code postal :" Grid.Row="6" Grid.Column="0"/>
 
-        <TextBox Grid.Column="1" Grid.Row="0" Name="tbNom" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
+        <TextBox Grid.Column="1" Grid.Row="0" Name="tbNom" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="Nom" Mode="TwoWay">
                     <Binding.ValidationRules>
-                        <Services:ValidateurChampRequis ValidationStep="RawProposedValue"/>
                         <Services:ValidateurNom ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox Grid.Column="1" Grid.Row="1" Name="tbPrenom" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
+        <TextBox Grid.Column="1" Grid.Row="1" Name="tbPrenom" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="Prenom" Mode="TwoWay">
                     <Binding.ValidationRules>
-                        <Services:ValidateurChampRequis ValidationStep="RawProposedValue"/>
                         <Services:ValidateurNom ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
@@ -61,7 +59,6 @@
             <TextBox.Text>
                 <Binding Path="Id" Mode="TwoWay">
                     <Binding.ValidationRules>
-                        <Services:ValidateurChampRequis ValidationStep="RawProposedValue"/>
                         <Services:ValidateurId ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
@@ -71,7 +68,6 @@
             <TextBox.Text>
                 <Binding Path="NumTel" Mode="TwoWay">
                     <Binding.ValidationRules>
-                        <Services:ValidateurChampRequis ValidationStep="RawProposedValue"/>
                         <Services:ValidateurTelephone ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
@@ -81,18 +77,16 @@
             <TextBox.Text>
                 <Binding Path="Courriel" Mode="TwoWay">
                     <Binding.ValidationRules>
-                        <Services:ValidateurChampRequis ValidationStep="RawProposedValue"/>
                         <Services:ValidateurCourriel ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
         </TextBox>
         <ComboBox SelectedItem="{Binding Province}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Provinces}}" Name="cbProvinces" Grid.Row="5" Grid.Column="1"/>
-        <TextBox Grid.Column="1" Grid.Row="6" Name="tbCodePostal" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textStyleTextBox}">
+        <TextBox Grid.Column="1" Grid.Row="6" Name="tbCodePostal" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="CodePostal" Mode="TwoWay">
                     <Binding.ValidationRules>
-                        <Services:ValidateurChampRequis ValidationStep="RawProposedValue"/>
                         <Services:ValidateurCodePostal ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
@@ -100,26 +94,7 @@
         </TextBox>
 
         <DockPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" LastChildFill="False">
-            <Button DockPanel.Dock="Bottom" Name="btAjouterClient" Content="Ajouter" Click="ajouter_Click">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="IsEnabled" Value="False"/>
-                        <Style.Triggers>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tbNom}" Value="False"/>
-                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tbPrenom}" Value="False"/>
-                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tbID}" Value="False"/>
-                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tbNumTel}" Value="False"/>
-                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tbCourriel}" Value="False"/>
-                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tbCodePostal}" Value="False"/>
-                                </MultiDataTrigger.Conditions>
-                                <Setter Property="IsEnabled" Value="True"/>
-                            </MultiDataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
+            <Button DockPanel.Dock="Bottom" Name="btAjouterClient" Content="Ajouter" Click="ajouter_Click"/>
         </DockPanel>
     </Grid>
 </Window>

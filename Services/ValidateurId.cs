@@ -13,6 +13,9 @@ namespace Services
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
+            int result;
+            if (!int.TryParse(value.ToString(), out result))
+                return new ValidationResult(false, "L'id doit être un nombre");
             if (new ScribeXML().recupererClients().ToList().Exists(x => x.Id == ((string)value)))
                 return new ValidationResult(false, "L'id de client éxiste déjà");
             return ValidationResult.ValidResult;
