@@ -65,7 +65,7 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox Name="tbNumTel" Grid.Row="3" Grid.Column="1">
+        <TextBox Name="tbNumTel" Grid.Row="3" Grid.Column="1" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="NumTel" Mode="TwoWay">
                     <Binding.ValidationRules>
@@ -74,7 +74,7 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox Name="tbCourriel" Grid.Row="4" Grid.Column="1">
+        <TextBox Name="tbCourriel" Grid.Row="4" Grid.Column="1" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="Courriel" Mode="TwoWay">
                     <Binding.ValidationRules>

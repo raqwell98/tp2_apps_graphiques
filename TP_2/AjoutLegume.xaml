@@ -70,7 +70,7 @@
             <CheckBox Content="est Vivace" IsChecked="{Binding EstVivace}" VerticalAlignment="Center"/>
         </StackPanel>
         <ComboBox Name="cbTempsRecolte" SelectedItem="{Binding TempsRecolte,  Converter={StaticResource convertisseurMois}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Mois}}" Grid.Row="4" Grid.Column="1"/>
-        <TextBox Name="tbIdentifiant" Grid.Row="5" Grid.Column="1">
+        <TextBox Name="tbIdentifiant" Grid.Row="5" Grid.Column="1" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="SKU" Mode="TwoWay">
                     <Binding.ValidationRules>
@@ -91,7 +91,7 @@
             </TextBox.Text>
         </TextBox>
         <TextBox Name="tbFormat" Text="{Binding Format}" Grid.Row="9" Grid.Column="1"/>
-        <TextBox Name="tbDescription" Grid.Row="10" Grid.Column="1">
+        <TextBox Name="tbDescription" Grid.Row="10" Grid.Column="1" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="Description" Mode="TwoWay">
                     <Binding.ValidationRules>

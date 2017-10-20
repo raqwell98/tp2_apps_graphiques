@@ -18,6 +18,8 @@ namespace Services
                 return new ValidationResult(false, "Le SKU doit être un nombre");
             if (new ScribeXML().recupererPlantes().ToList().Exists(x => x.SKU == ((string)value)))
                 return new ValidationResult(false, "Le SKU du produit éxiste déjà");
+            if (value.ToString().Length == 0)
+                return new ValidationResult(false, "Le champ ne peut être vide");
             return ValidationResult.ValidResult;
         }
     }

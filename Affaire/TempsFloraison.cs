@@ -17,7 +17,7 @@ namespace Affaire
 
         public override string ToString()
         {
-            return (debut == -1) ? "" : Constantes.Mois[debut] + " à " + Constantes.Mois[fin] + ". \n";
+            return (debut == -1) ? "" : "Temps floraison de " + Constantes.Mois[debut] + " à " + Constantes.Mois[fin] + ". \n";
         }
 
 

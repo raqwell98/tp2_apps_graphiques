@@ -69,14 +69,14 @@
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <RadioButton Name="rbArbre" Content="arbre " IsChecked="{Binding EstArbre}"/>
             <RadioButton Name="rbArbuste" Content="arbuste " IsChecked="{Binding EstArbuste}"/>
-            <RadioButton Content="fleur"/>
+            <RadioButton Content="fleur" IsChecked="True"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
             <ComboBox SelectedItem="{Binding Tfloraison.Debut,  Converter={StaticResource convertisseurMois}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Mois}}" Width="65" Name="cbFloraisonDebut"/>
             <TextBlock Text="à" Width="30" TextAlignment="Center"/>
             <ComboBox SelectedItem="{Binding Tfloraison.Fin,  Converter={StaticResource convertisseurMois}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Mois}}" Width="65" Name="cbFloraisonFin"/>
         </StackPanel>
-        <TextBox Name="tbIdentifiant" Grid.Row="5" Grid.Column="1">
+        <TextBox Name="tbIdentifiant" Grid.Row="5" Grid.Column="1" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="SKU" Mode="TwoWay">
                     <Binding.ValidationRules>
@@ -98,7 +98,7 @@
         </TextBox>
         <TextBox Name="tbFormat" Text="{Binding Format}" Grid.Row="9" Grid.Column="1"/>
         <ComboBox Name="cbZone" SelectedItem="{Binding Zone,  Converter={StaticResource convertisseurZone}}" ItemsSource="{Binding Source={x:Static Member=Affaire:Constantes.Zones}}" Grid.Row="10" Grid.Column="1"/>
-        <TextBox Name="tbDescription" Grid.Row="11" Grid.Column="1">
+        <TextBox Name="tbDescription" Grid.Row="11" Grid.Column="1" Style="{StaticResource textStyleTextBox}">
             <TextBox.Text>
                 <Binding Path="Description" Mode="TwoWay">
                     <Binding.ValidationRules>
