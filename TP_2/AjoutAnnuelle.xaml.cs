@@ -20,28 +20,27 @@ namespace TP_2
     /// </summary>
     public partial class AjoutAnnuelle : Window
     {
-        //private Plante fleurAnnuelle;
         public AjoutAnnuelle()
         {
             InitializeComponent();
-            //fleurAnnuelle = new Plante();
-            //this.DataContext = fleurAnnuelle as Plante;
         }
 
         private void ajouter_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = ((MainWindow)System.Windows.Application.Current.MainWindow);
-            main.Persistance.Plantes.Add((Plante)this.DataContext);
-            main.Persistance.sauvegarderDonnees();
-            this.Close();
+            if (champsCorrects())
+            {
+                MainWindow main = ((MainWindow)System.Windows.Application.Current.MainWindow);
+                main.Persistance.Plantes.Add((Plante)this.DataContext);
+                main.Persistance.sauvegarderDonnees();
+                this.Close();
+            }
         }
         private bool champsCorrects()
         {
             bool champsRemplis = tbNom.Text != "" && tbIdentifiant.Text != "" && tbQuantite.Text != "" &&
-                 tbNumTel.Text != "" && tbCourriel.Text != "" && tbCodePostal.Text != "";
-            return champsRemplis && !(Validation.GetHasError(tbNom) || Validation.GetHasError(tbPrenom) ||
-                                          Validation.GetHasError(tbNumTel) || Validation.GetHasError(tbID) ||
-                                          Validation.GetHasError(tbCourriel) || Validation.GetHasError(tbCodePostal));
+                 tbDescription.Text != "";
+            return champsRemplis && !(Validation.GetHasError(tbNom) || Validation.GetHasError(tbIdentifiant) ||
+                                          Validation.GetHasError(tbQuantite) || Validation.GetHasError(tbDescription));
         }
     }
 }
