@@ -7,6 +7,7 @@
         xmlns:Affaire="clr-namespace:Affaire;assembly=Affaire"
         xmlns:Services="clr-namespace:Services;assembly=Services"
         mc:Ignorable="d"
+        FontFamily="Comic sans ms"
         Title="Connexion" Height="300" Width="300" ResizeMode="NoResize">
     <Window.Resources>
         <Affaire:Connexion x:Key="connexion"/>
@@ -31,14 +32,14 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" TextAlignment="Center" FontFamily="Comic Sans MS">Identifiant</TextBlock>
+            <TextBlock Grid.Row="0" TextAlignment="Center">Identifiant</TextBlock>
             <TextBox IsEnabled="{Binding Path=Connecte, Converter={StaticResource inverseur}}" Name="tbId" TextAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" Width="150">
                 <TextBox.Text>
                     <Binding Path="Utilisateur.Identifiant" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                     </Binding>
                 </TextBox.Text>
             </TextBox>
-            <TextBlock FontFamily="Comic Sans MS" Name="tbErreurId" TextAlignment="Center" Grid.Row="2" Text="{Binding ElementName=idGrid, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBlock Name="tbErreurId" TextAlignment="Center" Grid.Row="2" Text="{Binding ElementName=idGrid, Path=(Validation.Errors)[0].ErrorContent}">
             </TextBlock>
         </Grid>
         <Grid Margin="0,0,0,10" x:Name="mpGrid">
@@ -54,12 +55,12 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0"  TextAlignment="Center" FontFamily="Comic Sans MS">Mot de passe</TextBlock>
+            <TextBlock Grid.Row="0"  TextAlignment="Center">Mot de passe</TextBlock>
             <PasswordBox IsEnabled="{Binding Path=Connecte, Converter={StaticResource inverseur}}" Name="pbMp" Grid.Row="1" HorizontalContentAlignment="Center"  Width="150"
       Affaire:PasswordBoxAssistant.BindPassword="true"  Affaire:PasswordBoxAssistant.BoundPassword="{Binding Path=MotDePasse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock FontFamily="Comic Sans MS" Name="tbErreurMp" TextAlignment="Center" Grid.Row="2" Text="{Binding ElementName=mpGrid, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBlock Name="tbErreurMp" TextAlignment="Center" Grid.Row="2" Text="{Binding ElementName=mpGrid, Path=(Validation.Errors)[0].ErrorContent}">
             </TextBlock>
         </Grid>
-        <Button Content="{Binding Path=Connecte, Converter={StaticResource converter}}" Name="btnConnexion" HorizontalAlignment="Center" Width="100" FontFamily="Comic Sans MS" Click="Button_Click"/>
+        <Button Content="{Binding Path=Connecte, Converter={StaticResource converter}}" Name="btnConnexion" HorizontalAlignment="Center" Width="100" Click="Button_Click"/>
     </StackPanel>
 </Window>

@@ -17,12 +17,11 @@ namespace Services
             BindingGroup bindingGroup = (BindingGroup)value;
             Affaire.Connexion con = (Affaire.Connexion)bindingGroup.Items[0];
 
-            if (Constantes.MotDePasse.estValide(con.MotDePasse))
-            {
-                return new ValidationResult(true, null);
-            }
-            return new ValidationResult(false,
-                      "Mot de passe incorrect.");
+            if (Constantes.MotDePasse.estValide(con.MotDePasse) && con.utilisateurCorrespondMP())
+                    return new ValidationResult(true, null);
+                return new ValidationResult(false,
+                          "Mot de passe incorrect.");
+            
 
         }
     }

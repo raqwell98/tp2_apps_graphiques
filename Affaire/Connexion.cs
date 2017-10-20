@@ -14,9 +14,9 @@ namespace Affaire
         private bool connecte;
 
         public Connexion() { utilisateur = new Utilisateur(); motDePasse = ""; connecte = false; }
-        public void Connecter() { Connecte = Constantes.Utilisateur.estValide(Utilisateur.Identifiant) && Constantes.MotDePasse.estValide(MotDePasse); avertir(); }
+        public void Connecter() { Connecte = Constantes.Utilisateur.estValide(Utilisateur.Identifiant) && Constantes.MotDePasse.estValide(MotDePasse) && utilisateurCorrespondMP(); avertir(); }
         public void Deconnecter() { Connecte = false; Utilisateur = new Utilisateur(); MotDePasse = ""; avertir(); }
-
+        public bool utilisateurCorrespondMP() => Utilisateur.Identifiant[11] == motDePasse[2];
         public void avertir()
         {
             OnPropertyChanged("PeuxConsulter");

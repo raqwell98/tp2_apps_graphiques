@@ -7,6 +7,7 @@
         xmlns:Affaire="clr-namespace:Affaire;assembly=Affaire"
         xmlns:Services="clr-namespace:Services;assembly=Services"
         mc:Ignorable="d"
+        FontFamily="Comic sans ms"
         Title="AjoutLegume" Height="400" Width="300">
     <Window.Resources>
         <Affaire:Legume  x:Key="legume"/>
