@@ -149,7 +149,7 @@
         </DataTemplate>
     </Window.Resources>
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
+        <Menu DockPanel.Dock="Top" FontFamily="Comic Sans MS">
             <MenuItem Header="_Options">
                 <MenuItem Header="{Binding Path=Connecte, Converter={StaticResource convertisseur2}}" Click="deconnecter_Click"/>
                 <MenuItem Visibility="{Binding Path=PeuxTout, Converter={StaticResource convertisseur}}" Header="Peuplement initial" Click="peupler_Click"/>

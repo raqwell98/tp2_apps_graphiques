@@ -18,7 +18,7 @@
     <Window.DataContext>
         <Binding Source="{StaticResource vivace}"/>
     </Window.DataContext>
-    <Grid>
+    <Grid Margin="0,3,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="*"/>
