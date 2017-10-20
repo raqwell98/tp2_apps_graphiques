@@ -31,6 +31,11 @@ namespace Affaire
                 this.Add(p);
 
         }
+        public void Add(List<Plante> plantes)
+        {
+            foreach (Plante p in plantes)
+                this.Add(p);
+        }
 
     }
 }

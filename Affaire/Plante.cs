@@ -28,8 +28,8 @@ namespace Affaire
         {
             get
             {
-                return base.DescriptionDetaillee +
-                    "\nTemps floraison de " + tfloraison.ToString() + ". \n" +
+                return base.DescriptionDetaillee + (Description == "" ? "" : "\n") +
+                    "Temps floraison de " + tfloraison.ToString() + ". \n" +
                     "Dimension de " + dimension.ToString() + ". \n" +
                     "Exposition " + Constantes.Expositions[exposition] + ".";
             }

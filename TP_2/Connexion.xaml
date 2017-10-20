@@ -11,7 +11,7 @@
     <Window.Resources>
         <Affaire:Connexion x:Key="connexion"/>
         <Services:ConvertisseurConnexion x:Key="converter" />
-        <Services:ConvertisseurDeBool x:Key="inversseur" />
+        <Services:ConvertisseurDeBool x:Key="inverseur" />
     </Window.Resources>
     <Window.DataContext>
         <Binding Source="{StaticResource connexion}"/>
@@ -32,13 +32,13 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" TextAlignment="Center" FontFamily="Comic Sans MS">Identifiant</TextBlock>
-            <TextBox IsEnabled="{Binding Path=Connecte, Converter={StaticResource inversseur}}" Name="tbId" TextAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" Width="150">
+            <TextBox IsEnabled="{Binding Path=Connecte, Converter={StaticResource inverseur}}" Name="tbId" TextAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" Width="150">
                 <TextBox.Text>
                     <Binding Path="Utilisateur.Identifiant" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                     </Binding>
                 </TextBox.Text>
             </TextBox>
-            <TextBlock Name="tbErreurId" TextAlignment="Center" Grid.Row="2" Text="{Binding ElementName=idGrid, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBlock FontFamily="Comic Sans MS" Name="tbErreurId" TextAlignment="Center" Grid.Row="2" Text="{Binding ElementName=idGrid, Path=(Validation.Errors)[0].ErrorContent}">
             </TextBlock>
         </Grid>
         <Grid Margin="0,0,0,10" x:Name="mpGrid">
@@ -55,19 +55,9 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0"  TextAlignment="Center" FontFamily="Comic Sans MS">Mot de passe</TextBlock>
-            <!-- Version fonctionnel sans passwordbox
-            <TextBox TextAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" Width="150" >
-                <TextBox.Text>
-                    <Binding Path="MotDePasse" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
-                    </Binding>
-                </TextBox.Text>
-            </TextBox> 
-            
-             Version du passwordbox trouver sur internet       -->
-            <PasswordBox IsEnabled="{Binding Path=Connecte, Converter={StaticResource inversseur}}" Name="pbMp" Grid.Row="1" HorizontalContentAlignment="Center"  Width="150"
+            <PasswordBox IsEnabled="{Binding Path=Connecte, Converter={StaticResource inverseur}}" Name="pbMp" Grid.Row="1" HorizontalContentAlignment="Center"  Width="150"
       Affaire:PasswordBoxAssistant.BindPassword="true"  Affaire:PasswordBoxAssistant.BoundPassword="{Binding Path=MotDePasse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-            <TextBlock Name="tbErreurMp" TextAlignment="Center" Grid.Row="2" Text="{Binding ElementName=mpGrid, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBlock FontFamily="Comic Sans MS" Name="tbErreurMp" TextAlignment="Center" Grid.Row="2" Text="{Binding ElementName=mpGrid, Path=(Validation.Errors)[0].ErrorContent}">
             </TextBlock>
         </Grid>
         <Button Content="{Binding Path=Connecte, Converter={StaticResource converter}}" Name="btnConnexion" HorizontalAlignment="Center" Width="100" FontFamily="Comic Sans MS" Click="Button_Click"/>

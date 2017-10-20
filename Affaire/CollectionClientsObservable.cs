@@ -39,6 +39,11 @@ namespace Affaire
                 this.Add(p);
 
         }
+        public void Add(List<Client> clients)
+        {
+            foreach (Client c in clients)
+                this.Add(c);
+        }
 
     }
 }
