@@ -19,13 +19,7 @@ namespace Services
         public object ConvertBack(object value, Type targetType,
             object parameter, CultureInfo culture)
         {
-            switch ((string)value)
-            {
-                case "Connexion":
-                    return true;
-                default:
-                    return false;
-            }
+            return (string)value == "Connexion";
         }
     }
 }

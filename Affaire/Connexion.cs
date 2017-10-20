@@ -14,7 +14,6 @@ namespace Affaire
         private bool connecte;
 
         public Connexion() { utilisateur = new Utilisateur(); motDePasse = ""; connecte = false; }
-
         public void Connecter() { Connecte = Constantes.Utilisateur.estValide(Utilisateur.Identifiant) && Constantes.MotDePasse.estValide(MotDePasse); avertir(); }
         public void Deconnecter() { Connecte = false; Utilisateur = new Utilisateur(); MotDePasse = ""; avertir(); }
 

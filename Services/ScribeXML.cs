@@ -143,7 +143,7 @@ namespace Services
             dt.Columns.Add("Quantite", typeof(int));
             dt.Columns.Add("DX", typeof(int));
             dt.Columns.Add("DY", typeof(int));
-            dt.Columns.Add("Exposition", typeof(string));
+            dt.Columns.Add("Exposition", typeof(int));
 
             DataRow dr = dt.NewRow();
             dr["Nom"] = "Begonia";
@@ -155,10 +155,10 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["Format"] = "pot 4 pouces;";
             dr["PrixVente"] = 3.99f;
-            dr["Exposition"] = "mi-ombre";
+             dr["Exposition"] = 1;
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
@@ -171,10 +171,10 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["Format"] = "pot 3 pouces;";
             dr["PrixVente"] = 2.49f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
@@ -187,10 +187,10 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["Format"] = "pot 3 pouces;";
             dr["PrixVente"] = 2.49f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
@@ -203,10 +203,10 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["Format"] = "pot 6 pouces;";
             dr["PrixVente"] = 6.49f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
@@ -219,10 +219,10 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["Format"] = "pot 4 pouces;";
             dr["PrixVente"] = 3.99f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
@@ -235,10 +235,10 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["PrixVente"] = 3.99f;
             dr["Format"] = "pot 4 pouces;";
-            dr["Exposition"] = "mi-ombre";
+             dr["Exposition"] = 1;
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
@@ -251,10 +251,10 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["Format"] = "pot 3 pouces;";
             dr["PrixVente"] = 2.49f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
@@ -267,10 +267,10 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["Format"] = "pot 4 pouces;";
             dr["PrixVente"] = 3.99f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
@@ -283,10 +283,10 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["Format"] = "pot 4 pouces;";
             dr["PrixVente"] = 3.99f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
@@ -299,10 +299,10 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["Format"] = "pot 3 pouces;";
             dr["PrixVente"] = 2.49f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dt.Rows.Add(dr);
 
             DataTable dt2;
@@ -319,7 +319,7 @@ namespace Services
             dt2.Columns.Add("Quantite", typeof(int));
             dt2.Columns.Add("DX", typeof(int));
             dt2.Columns.Add("DY", typeof(int));
-            dt2.Columns.Add("Exposition", typeof(string));
+            dt2.Columns.Add("Exposition", typeof(int));
             dt2.Columns.Add("EstVivace", typeof(bool));
             dt2.Columns.Add("Type", typeof(int));
             dt2.Columns.Add("TempsRecolte", typeof(int));
@@ -335,11 +335,11 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["EstVivace"] = false;
             dr["Format"] = "pot 3,5 pouces;";
             dr["PrixVente"] = 2.69f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dr["Type"] = 1;
             dr["TempsRecolte"] = 1;
             dt2.Rows.Add(dr);
@@ -354,11 +354,11 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["EstVivace"] = false;
             dr["Format"] = "pack de 9";
             dr["PrixVente"] = 4.39f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dr["Type"] = 1;
             dr["TempsRecolte"] = 1;
             dt2.Rows.Add(dr);
@@ -373,11 +373,11 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["EstVivace"] = false;
             dr["Format"] = "pack de 9";
             dr["PrixVente"] = 4.39f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dr["Type"] = 1;
             dr["TempsRecolte"] = 1;
             dt2.Rows.Add(dr);
@@ -392,11 +392,11 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["EstVivace"] = false;
             dr["Format"] = "pack de 4";
             dr["PrixVente"] = 2.89f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dr["Type"] = 1;
             dr["TempsRecolte"] = 1;
             dt2.Rows.Add(dr);
@@ -411,11 +411,11 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["EstVivace"] = false;
             dr["Format"] = "pack de 4";
             dr["PrixVente"] = 2.89f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dr["Type"] = 1;
             dr["TempsRecolte"] = 1;
             dt2.Rows.Add(dr);
@@ -430,11 +430,11 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+            dr["Exposition"] = 0;
             dr["EstVivace"] = false;
             dr["Format"] = "pack de 6";
             dr["PrixVente"] = 3.49f;
-            dr["Exposition"] = "mi-ombre Ã  plein soleil";
+            dr["Exposition"] = 1;
             dr["Type"] = 1;
             dr["TempsRecolte"] = 1;
             dt2.Rows.Add(dr);
@@ -449,11 +449,11 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["EstVivace"] = false;
             dr["Format"] = "pack de 9";
             dr["PrixVente"] = 4.39f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dr["Type"] = 1;
             dr["TempsRecolte"] = 1;
             dt2.Rows.Add(dr);
@@ -468,11 +468,11 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["EstVivace"] = false;
             dr["Format"] = "pot 6 pouces;";
             dr["PrixVente"] = 5.99f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dr["Type"] = 1;
             dr["TempsRecolte"] = 1;
             dt2.Rows.Add(dr);
@@ -487,11 +487,11 @@ namespace Services
             dr["Quantite"] = 1;
             dr["DX"] = 25;
             dr["DY"] = 50;
-            dr["Exposition"] = 1;
+             dr["Exposition"] = 0;
             dr["EstVivace"] = false;
             dr["Format"] = "pot 3,5 pouces;";
             dr["PrixVente"] = 2.69f;
-            dr["Exposition"] = "plein soleil";
+             dr["Exposition"] = 0;
             dr["Type"] = 1;
             dr["TempsRecolte"] = 1;
             dt2.Rows.Add(dr);
@@ -523,7 +523,7 @@ namespace Services
                         Dimension = new Dimension() { Y = (int)row["DY"], X = (int)row["DX"] },
                         Quantite = (int)row["Quantite"],
                         Tfloraison = new TempsFloraison() { Debut = (int)row["TFDebut"], Fin = (int)row["TFFin"] },
-                        Exposition = 1
+                        Exposition = (int)row["Exposition"]
                     });
                 }
                 plantesInitiales.AddRange(annuelles);

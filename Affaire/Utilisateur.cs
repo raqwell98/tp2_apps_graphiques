@@ -9,7 +9,6 @@ namespace Affaire
     public class Utilisateur
     {
         private string identifiant;
-
         public Utilisateur() { identifiant = "";}
         public string Identifiant { get => identifiant; set => identifiant = value; }
     }

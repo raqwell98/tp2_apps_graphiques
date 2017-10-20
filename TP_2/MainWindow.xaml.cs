@@ -38,7 +38,6 @@ namespace TP_2
             initialiserConnection();
             persistance = new Persistance();
             this.DataContext = connexion;
-            lbConsultation.DataContext = persistance;
 
         }
 
@@ -53,7 +52,7 @@ namespace TP_2
             string nomAppelant = ((MenuItem)sender).Header.ToString();
             Window fenetre = 
                 nomAppelant == "Annuelle" ? (Window)new AjoutAnnuelle() :
-                nomAppelant == "Legume" ? (Window)new AjoutLegume() :
+                nomAppelant == "Légume" ? (Window)new AjoutLegume() :
                 (Window)new AjoutVivace();
 
             fenetre.Title = "Formulaire " + nomAppelant;

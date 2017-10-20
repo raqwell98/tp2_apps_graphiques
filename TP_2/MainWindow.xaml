@@ -149,30 +149,29 @@
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Options">
-                <MenuItem Header="{Binding Path=Connecte, Converter={StaticResource convertisseur2}}" Click="deconnecter_Click"/>
-                <MenuItem Visibility="{Binding Path=PeuxModifier, Converter={StaticResource convertisseur}}" Header="Peuplement initial" Click="peupler_Click"/>
+            <MenuItem FontFamily="Comic sans MS" Header="_Options">
+                <MenuItem FontFamily="Comic sans MS" Header="{Binding Path=Connecte, Converter={StaticResource convertisseur2}}" Click="deconnecter_Click"/>
+                <MenuItem FontFamily="Comic sans MS" Visibility="{Binding Path=PeuxModifier, Converter={StaticResource convertisseur}}" Header="Peuplement initial" Click="peupler_Click"/>
             </MenuItem>
-            <MenuItem  Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Inventaire">
-                <MenuItem Visibility="{Binding Path=PeuxModifier, Converter={StaticResource convertisseur}}" Name="miAjout" Header="_Nouveau">
-                    <MenuItem  Name="annuelle" Header="Annuelle" Click="ajout_Click"/>
-                    <MenuItem Name="vivace"  Header="Vivace" Click="ajout_Click"/>
-                    <MenuItem Name="legume" Header="Légume" Click="ajout_Click"/>
-                    <MenuItem Name="arbre" Header="Arbre ou arbuste" Click="ajout_Click"/>
+            <MenuItem FontFamily="Comic sans MS" Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Produits">
+                <MenuItem FontFamily="Comic sans MS" Visibility="{Binding Path=PeuxModifier, Converter={StaticResource convertisseur}}" Name="miAjout" Header="_Nouveau">
+                    <MenuItem FontFamily="Comic sans MS"  Name="annuelle" Header="Annuelle" Click="ajout_Click"/>
+                    <MenuItem FontFamily="Comic sans MS" Name="vivace"  Header="Vivace" Click="ajout_Click"/>
+                    <MenuItem FontFamily="Comic sans MS" Name="legume" Header="Légume" Click="ajout_Click"/>
                 </MenuItem>
-                <MenuItem Header="_Consulter" Name="consultationPlantes" Click="consultation_Click"/>
+                <MenuItem FontFamily="Comic sans MS" Header="_Consulter" Name="consultationPlantes" Click="consultation_Click"/>
             </MenuItem>
-            <MenuItem Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Clients">
-                <MenuItem  Visibility="{Binding Path=PeuxModifier, Converter={StaticResource convertisseur}}" Name="ajoutClient" Header="_Ajouter" Click="ajoutClient_Click"/>
-                <MenuItem Name="consultationClient" Header="_Consulter" Click="consultation_Click"/>
+            <MenuItem FontFamily="Comic sans MS" Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Clients">
+                <MenuItem FontFamily="Comic sans MS"  Visibility="{Binding Path=PeuxTout, Converter={StaticResource convertisseur}}" Name="ajoutClient" Header="_Ajouter" Click="ajoutClient_Click"/>
+                <MenuItem FontFamily="Comic sans MS" Name="consultationClient" Header="_Consulter" Click="consultation_Click"/>
             </MenuItem>
-            <MenuItem  Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Trier par">
-                <MenuItem Header="Noms" Name="tri1" Click="trier_Click"/>
-                <MenuItem Header="SKUs" Name="tri2"  Click="trier_Click"/>
+            <MenuItem FontFamily="Comic sans MS"  Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}" Header="_Trier par">
+                <MenuItem FontFamily="Comic sans MS" Header="Noms" Name="tri1" Click="trier_Click"/>
+                <MenuItem FontFamily="Comic sans MS" Header="SKUs" Name="tri2"  Click="trier_Click"/>
             </MenuItem>
         </Menu>
         <DockPanel Visibility="{Binding Path=PeuxConsulter, Converter={StaticResource convertisseur}}">
-            <ListBox HorizontalContentAlignment="Stretch" Name="lbConsultation" ItemsSource="{Binding Path=Plantes}" ItemTemplate="{StaticResource planteTemplate}">
+            <ListBox HorizontalContentAlignment="Stretch" Name="lbConsultation">
             </ListBox>
         </DockPanel>
     </DockPanel>

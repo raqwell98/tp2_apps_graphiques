@@ -15,29 +15,23 @@ namespace Affaire
         public void trierParNoms()
         {
             List<Client> clientsOrdonnes = this.ToList();
-            clientsOrdonnes.Sort((Client x, Client y) => x.Nom.CompareTo(y.Nom));
+            clientsOrdonnes.Sort((x,y) => x.Nom.CompareTo(y.Nom));
             this.Clear();
-            foreach (Client p in clientsOrdonnes)
-                this.Add(p);
-
+            this.Add(clientsOrdonnes);
         }
         public void trierParProvinces()
         {
             List<Client> clientsOrdonnes = this.ToList();
-            clientsOrdonnes.Sort((Client x, Client y) => x.Province.CompareTo(y.Province));
+            clientsOrdonnes.Sort((x,y) => x.Province.CompareTo(y.Province));
             this.Clear();
-            foreach (Client p in clientsOrdonnes)
-                this.Add(p);
-
+            this.Add(clientsOrdonnes);
         }
         public void trierParId()
         {
             List<Client> clientsOrdonnes = this.ToList();
-            clientsOrdonnes.Sort((Client x, Client y) => x.Id.CompareTo(y.Id));
+            clientsOrdonnes.Sort((x,y) => x.Id.CompareTo(y.Id));
             this.Clear();
-            foreach (Client p in clientsOrdonnes)
-                this.Add(p);
-
+            this.Add(clientsOrdonnes);
         }
         public void Add(List<Client> clients)
         {

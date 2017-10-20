@@ -16,20 +16,16 @@ namespace Affaire
         public void trierParNoms()
         {
             List<Plante> plantesOrdonnes = this.ToList();
-            plantesOrdonnes.Sort((Plante x, Plante y) => x.Nom.CompareTo(y.Nom));
+            plantesOrdonnes.Sort((x,y) => x.Nom.CompareTo(y.Nom));
             this.Clear();
-            foreach (Plante p in plantesOrdonnes)
-                this.Add(p);
-
+            this.Add(plantesOrdonnes);
         }
         public void trierParSKU()
         {
             List<Plante> plantesOrdonnes = this.ToList();
-            plantesOrdonnes.Sort((Plante x, Plante y) => x.SKU.CompareTo(y.SKU));
+            plantesOrdonnes.Sort((x,y) => x.SKU.CompareTo(y.SKU));
             this.Clear();
-            foreach (Plante p in plantesOrdonnes)
-                this.Add(p);
-
+            this.Add(plantesOrdonnes);
         }
         public void Add(List<Plante> plantes)
         {
