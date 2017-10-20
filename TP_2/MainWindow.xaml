@@ -77,7 +77,7 @@
         </DataTemplate>
         <DataTemplate x:Key="planteTemplate">
             <Border BorderThickness="2" BorderBrush="Black" CornerRadius="1" MinWidth="80">
-                <StackPanel  Background="LawnGreen">
+                <StackPanel  Background="LightGreen">
                     <TextBlock FontSize="20" HorizontalAlignment="Center"  FontWeight="Light"   Text="{Binding Nom}" />
                     <Border BorderThickness="0,0,0,1" BorderBrush="Black">
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
@@ -106,7 +106,7 @@
         </DataTemplate>
         <DataTemplate x:Key="planteTemplateTrie">
             <Border BorderThickness="2" BorderBrush="Black" CornerRadius="1" MinWidth="80">
-                <StackPanel  Background="LawnGreen">
+                <StackPanel  Background="LightGreen">
                     <TextBlock FontSize="20" HorizontalAlignment="Center" FontWeight="Light"   Text="{Binding Nom}" />
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                         <TextBlock FontWeight="Light" Text="SKU: "/>

@@ -11,7 +11,7 @@ namespace Affaire
     {
         public static readonly string[] Mois = { "Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre" };
         public static readonly string[] Expositions = { "Soleil", "Ombre", "Mi-Ombre" };
-        public static readonly string[] Zones = { "Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5" };
+        public static readonly string[] Zones = { "Zone 1", "Zone 2", "Zone 3", "Zone 3a", "Zone 3b", "Zone 4", "Zone 4a", "Zone 4b", "Zone 5", "Zone 6", "Zone 7", "Zone 8"};
         public static readonly string[] Saisons = {"Été", "Hiver" };
         public static readonly string[] Provinces = { "Alberta", "Colombie-Britannique", "Manitoba", "Nouveau-Brunswick", "Terre-Neuve et Labrador", "Nouvelle-Écosse", "Ontario", "Île-du-Prince-Édouard", "Québec", "Saskatchewan" };
         public static class MotDePasse
